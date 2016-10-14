@@ -31,3 +31,41 @@ Template.main.helpers({
 /*
  * login.html: login page template
  */
+
+
+
+ /*
+  *
+  */
+Template.input.rendered = function () {
+    setTimeout(function() {
+        resizeHeightFix()
+    }, 50);
+    $(window).resize(function () {
+        resizeHeightFix();
+    });
+};
+
+Template.input.helpers({
+    minHeight: function () {
+        return Template.instance().minHeight.get() + 'px'
+    }
+});
+
+/*
+ *
+ */
+Template.graph.rendered = function () {
+    setTimeout(function() {
+        resizeHeightFix()
+    }, 50);
+    $(window).resize(function () {
+        resizeHeightFix();
+    });
+};
+
+Template.graph.helpers({
+    minHeight: function () {
+        return Template.instance().minHeight.get() + 'px'
+    }
+});
