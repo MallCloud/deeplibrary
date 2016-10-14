@@ -1,17 +1,9 @@
+import { Template } from 'meteor/templating';
 /*
  * main.html: index page template
  */
-Template.main.onCreated = function () {
-    var self = this;
 
-    self.minHeight = new ReactiveVar($(window).height() - $('.main-header').height());
-
-    $(window).resize(function () {
-        self.minHeight.set($(window).height() - $('.main-header').height());
-    });
-};
-
-Template.main.onRendered = function () {
+function resizeHeightFix() {
     windowHeight=jQuery(window).height();
     sidebarHeight=jQuery(".sidebar").height();
     mainHeight=jQuery(".main-header").outerHeight()+jQuery(".main-footer").outerHeight()
@@ -20,6 +12,14 @@ Template.main.onRendered = function () {
     } else {
         jQuery(".content-wrapper, .right-side").css("min-height",sidebarHeight)
     }
+}
+Template.main.rendered = function () {
+    setTimeout(function() {
+        resizeHeightFix()
+    }, 50);
+    $(window).resize(function () {
+        resizeHeightFix();
+    });
 };
 
 Template.main.helpers({
@@ -27,7 +27,6 @@ Template.main.helpers({
         return Template.instance().minHeight.get() + 'px'
     }
 });
-
 
 /*
  * login.html: login page template
