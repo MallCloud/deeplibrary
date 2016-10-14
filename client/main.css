@@ -7,3 +7,17 @@ html, body {
 .wrapper{
 	height: 100vh;
 }
+.btn-google {
+    color: #fff;
+    background-color: red;
+    border-color: rgba(0,0,0,0.2);
+}
+.login-box .row{
+	margin:0px;
+}
+.login-box .row .col-xs-8{
+	padding-left:0px;
+}
+.login-box .row .col-xs-4{
+	padding-right:0px;
+}
