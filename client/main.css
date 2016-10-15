@@ -21,3 +21,10 @@ html, body {
 .login-box .row .col-xs-4{
 	padding-right:0px;
 }
+.login-box .checkbox input[type="checkbox"]{
+	position: relative;
+	margin-left: 0px;
+}
+.login-box .checkbox label{
+	padding-left: 0px
+}
