@@ -28,3 +28,6 @@ html, body {
 .login-box .checkbox label{
 	padding-left: 0px
 }
+input.error{
+    background-color:rgb(255, 231, 231);
+}

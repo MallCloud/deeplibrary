@@ -12,7 +12,38 @@ if (Meteor.isServer) {
     return Images.find().cursor;
   });
 }
+Meteor.startup(function () {
 
+    sAlert.config({
+        effect: '',
+        position: 'top-right',
+        timeout: 5000,
+        html: false,
+        onRouteClose: true,
+        stack: true,
+        // or you can pass an object:
+        // stack: {
+        //     spacing: 10 // in px
+        //     limit: 3 // when fourth alert appears all previous ones are cleared
+        // }
+        offset: 0, // in px - will be added to first alert (bottom or top - depends of the position in config)
+        beep: false,
+        // examples:
+        // beep: '/beep.mp3'  // or you can pass an object:
+        // beep: {
+        //     info: '/beep-info.mp3',
+        //     error: '/beep-error.mp3',
+        //     success: '/beep-success.mp3',
+        //     warning: '/beep-warning.mp3'
+        // }
+        onClose: _.noop //
+        // examples:
+        // onClose: function() {
+        //     /* Code here will be executed once the alert closes. */
+        // }
+    });
+
+});
 Template.register.events({
     'submit form': function(event){
         event.preventDefault();
@@ -21,18 +52,39 @@ Template.register.events({
         Accounts.createUser({
             email: email,
             password: password
+        }, function(error){
+            if(error){
+                sAlert.error(error.reason);
+            } else {
+                sAlert.success("Registered Successfully");
+            }
         });
-        console.log("registered successfully")
     }
 });
 Template.login.events({
+    'click #facebook-login': function(event) {
+        Meteor.loginWithFacebook({}, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
+    },
+    'click #google-login': function(event) {
+        Meteor.loginWithGoogle({}, function(err){
+            if (err) {
+                throw new Meteor.Error("Google login failed");
+            }else{
+                Router.go("/input");
+            }
+        });
+    },
     'submit form': function(event){
         event.preventDefault();
         var email = $('[name=email]').val();
         var password = $('[name=password]').val();
         Meteor.loginWithPassword(email, password, function(error){
             if(error){
-                console.log(error.reason);
+                sAlert.error(error.reason);
             } else {
                 Router.go("/input");
             }
