@@ -11,6 +11,14 @@ Router.route('/main', function() {
   this.render('main');
 });
 
+Router.route('/main1', function() {
+  this.render('main1');
+});
+
+Router.route('/lapse', function() {
+  this.render('lapse');
+});
+
 Router.route('/lockscreen', function() {
   this.render('lockscreen');
 });

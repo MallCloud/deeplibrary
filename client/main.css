@@ -4,6 +4,41 @@
 html, body {
 	height: 100%;
 }
+.skin-blue .main-header .navbar.navbar-static-top{
+	background-color: #fff;
+}
+.skin-blue .main-header .navbar.navbar-static-top .nav>li>a{
+	color:blue;
+}
+.skin-blue .main-header .navbar.navbar-static-top .nav>li.logout>a{
+	color:#777777;
+}
+.skin-blue .main-header .navbar a.sidebar-toggle{
+	width:45px;
+	color:black;
+	position: absolute;
+	left:-45px;
+	text-decoration: none;
+}
+.skin-blue .sidebar-menu>li{
+	border-bottom: solid 1px #1a7499 ;
+}
+.skin-blue aside.main-sidebar{
+	background-color: #0f678b;
+}
+.skin-blue .main-header .navbar a.sidebar-toggle:hover{
+	background-color: #333333;
+}
+.skin-blue .sidebar-men>li.treeview:hover>a, .skin-blue .sidebar-menu>li.treeview.active>a{
+ 	background-color: #074d6e;
+}
+.skin-blue .sidebar-menu>li>ul.treeview-menu{
+	background-color: #074d6e;
+}
+.skin-blue .main-header a.logo{
+	background-color: white;
+	color:black;
+}
 .wrapper{
 	height: 100vh;
 }
@@ -24,6 +59,9 @@ html, body {
 .login-box .checkbox input[type="checkbox"]{
 	position: relative;
 	margin-left: 0px;
+}
+.treeview .pull-right-container{
+	float:right;
 }
 .login-box .checkbox label{
 	padding-left: 0px

@@ -1,0 +1,128 @@
+<template name="lapse">
+  {{#AdminLTE skin="blue"}}
+
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">-SYNAPSE</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+
+            <!-- Notifications Menu -->
+            
+            <!-- User Account: style can be found in dropdown.less -->
+            <li>
+               <a>COMPANY1</a>
+            </li>
+            <li class="logout">
+            	<a href="login">LOG OUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header> <!-- navbar -->
+
+     <aside class="main-sidebar">
+      <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+<!--        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>admin</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div> -->
+
+        <!-- search form (Optional) -->
+        <!--<form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                  </button>
+                </span>
+          </div>
+        </form>-->
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+          <!-- Optionally, you can add icons to the links -->
+          <!--<li><a href="input"><i class="fa fa-link"></i> <span>Data</span></a></li>-->
+          <li><a href="input"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a></li>
+          <li><a href="input"><i class="fa fa-check" aria-hidden="true"></i> <span>KNOWLEDGE GRIDS</span></a></li>
+          <li class="treeview active">
+            <a href="#"><i class="fa fa-list-ul"></i> <span>GRIDS</span>
+              <span class="pull-right-container">
+                <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#">Churn</a></li>
+              <li class="active"><a href="/lapse">Lapse</a></li>
+              <li><a href="#">Influence</a></li>
+              <li><a href="#">Target</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-link"></i> <span>ACTION</span>
+              <span class="pull-right-container">
+                <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="input">Upload Data</a></li>
+              <li><a href="graph">Graphs</a></li>
+              <li><a href="#">Parameters</a></li>
+            </ul>
+          </li>
+
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+    </aside>
+
+    <div class="content-wrapper">
+      <section class="content-header">
+      </section>
+      <section class="content">
+	<div id="chart_preandrev">
+	    <svg style="height:400px;width:700px"></svg>
+	</div>
+  	<button id="add_preandrev">Add data</button>
+	<button id="remove_preandrev">Remove data</button>
+	<button id="show_preandrev">Show data</button>
+	<div id="chart_algorithm">
+	    <svg style="height:400px;width:700px"></svg>
+	</div>
+	<button id="add_algorithm">Add data</button>
+	<button id="remove_algorithm">Remove data</button>
+	<button id="show_algorithm">Show data</button>
+	<div id="chart_algo_cur">
+	    <svg style="height:400px;width:700px"></svg>
+	</div>
+	<button id="change_algo_cur_data">Change data</button>
+	<button id="show_algo_cur_data">Show data</button>
+
+
+      </section>
+    </div>
+    <!-- /.content-wrapper -->
+  </div> <!-- wrapper -->
+
+  {{/AdminLTE}}
+</template>

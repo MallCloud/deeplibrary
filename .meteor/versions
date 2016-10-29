@@ -26,6 +26,7 @@ caching-html-compiler@1.0.7
 callback-hook@1.0.9
 check@1.2.3
 coffeescript@1.2.3
+d3@1.0.0
 dburles:collection-helpers@1.0.4
 ddp@1.2.5
 ddp-client@1.2.9
@@ -78,6 +79,7 @@ modules@0.7.6_1
 modules-runtime@0.7.6_1
 mongo@1.1.12_5
 mongo-id@1.0.5
+mrt:nvd3js@0.1.0
 npm-bcrypt@0.9.1_1
 npm-mongo@2.2.10_1
 oauth@1.1.11
