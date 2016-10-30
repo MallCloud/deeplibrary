@@ -8,10 +8,10 @@ html, body {
 	background-color: #fff;
 }
 .skin-blue .main-header .navbar.navbar-static-top .nav>li>a{
-	color:blue;
+	color:#4988a7;
 }
 .skin-blue .main-header .navbar.navbar-static-top .nav>li.logout>a{
-	color:#777777;
+	color:#e5e5e5;
 }
 .skin-blue .main-header .navbar a.sidebar-toggle{
 	width:45px;
@@ -20,8 +20,31 @@ html, body {
 	left:-45px;
 	text-decoration: none;
 }
+.skin-blue .content-header{
+	padding: 25px 25px 0 25px;
+}
+.chartbuttons{
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+.chartbuttons button{
+	margin: 5px calc(12.5vw - 136px);
+	display: inline-block;
+}
+.chartbuttons button:first-child{
+	margin-left: 0px;
+	display: inline-block;
+}
 .skin-blue .sidebar-menu>li{
-	border-bottom: solid 1px #1a7499 ;
+	border-bottom: solid 1px #1a7499;
+}
+.skin-blue .sidebar li>a{
+	color: #6ccef3;
+}
+.skin-blue .sidebar-menu>li>a>.fa{
+	font-size: 16px;
+	font-weight: 300;
 }
 .skin-blue aside.main-sidebar{
 	background-color: #0f678b;
@@ -31,16 +54,62 @@ html, body {
 }
 .skin-blue .sidebar-men>li.treeview:hover>a, .skin-blue .sidebar-menu>li.treeview.active>a{
  	background-color: #074d6e;
+ 	color:#dce6e7;
 }
 .skin-blue .sidebar-menu>li>ul.treeview-menu{
 	background-color: #074d6e;
 }
 .skin-blue .main-header a.logo{
 	background-color: white;
-	color:black;
+	color:#343434;
 }
-.wrapper{
-	height: 100vh;
+.content-header h1{
+	font-weight: 500;
+	padding-bottom: 20px;
+}
+.content-header p.comment{
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+.content-wrapper{
+	background: #f9f9f9;
+}
+nav.navbar.navbar-static-top{
+	box-shadow: 10px 10px 10px #dddddd;
+}
+.skin-blue div.wrapper{
+	background-color: #f9f9f9;
+}
+.linegraphsec{
+	min-width:450px;
+	background-color: white;
+	float:left;
+	width:calc(50% - 20px);
+	margin: 10px;
+	box-shadow: 0 0 30px #888888;
+}
+.linegraphsec button{
+	display: inline-block;
+}
+.linegraphsec svg{ 
+	width: 100%;
+	height: 420px;
+}
+#chart_preandrev,#chart_algorithm,#chart_algo_cur{
+	padding:5px 0px;
+}
+.linegraphsec .graphtitle{
+	padding:10px 0px;
+	font-size:12px;
+	background-color: #f9f9f9;
+	border-bottom:solid 1px #ededed;
+}
+.linegraphsec .graphtitle p{
+	padding:0px 25px;
+	margin:0px;
+}
+.linegraphsecs{
+	width: 100%;
 }
 .btn-google {
     color: #fff;
@@ -49,6 +118,42 @@ html, body {
 }
 .login-box .row{
 	margin:0px;
+}
+.lapsebtn.btn-primary{
+	background-color: #aa82be;
+	width:200px;
+	letter-spacing: 1px;
+}
+.churnbtn.btn-primary{
+	background-color: #70c0b3;
+	width:200px;
+	letter-spacing: 1px;
+}
+.influencebtn.btn-primary{
+	background-color: #f1a07b;
+	width:200px;
+	letter-spacing: 1px;
+}
+.targetbtn.btn-primary{
+	background-color: #eb557b;
+	width:200px;
+	letter-spacing: 1px;
+}
+.chartbuttons .btn-primary{
+	border: none;
+	box-shadow: 0 0 5px #000;
+}
+.lapsebtn.btn-primary p,.churnbtn.btn-primary p,.influencebtn.btn-primary p,.targetbtn.btn-primary p{
+	letter-spacing:3px;
+	font-size:18px;
+	padding:2px;
+	margin:0px;
+	float:left;
+}
+.lapsebtn.btn-primary i,.churnbtn.btn-primary i,.influencebtn.btn-primary i,.targetbtn.btn-primary i{
+	float:right;
+	font-size:22px;
+	padding:4px;
 }
 .login-box .row .col-xs-8{
 	padding-left:0px;

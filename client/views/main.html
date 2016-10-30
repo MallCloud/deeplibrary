@@ -1,4 +1,4 @@
-<template name="lapse">
+<template name="main">
   {{#AdminLTE skin="blue"}}
 
   <div class="wrapper">
@@ -64,8 +64,8 @@
           <!-- Optionally, you can add icons to the links -->
           <!--<li><a href="input"><i class="fa fa-link"></i> <span>Data</span></a></li>-->
           <li><a href="main"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a></li>
-          <li><a href="main"><i class="fa fa-check" aria-hidden="true"></i> <span>KNOWLEDGE GRIDS</span></a></li>
-          <li class="treeview active">
+          <li class="active"><a href="main"><i class="fa fa-check" aria-hidden="true"></i> <span>KNOWLEDGE GRIDS</span></a></li>
+          <li class="treeview">
             <a href="#"><i class="fa fa-list-ul"></i> <span>GRIDS</span>
               <span class="pull-right-container">
                 <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
@@ -73,7 +73,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#">Churn</a></li>
-              <li class="active"><a href="/lapse">Lapse</a></li>
+              <li><a href="/lapse">Lapse</a></li>
               <li><a href="#">Influence</a></li>
               <li><a href="#">Target</a></li>
             </ul>
@@ -98,39 +98,35 @@
 
     <div class="content-wrapper">
     	<section class="content-header">
-      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / <a>GRID Details</a></p>
-      		<h1><b>Grid Details</b></h1>
-      		<p class="comment">Projecting customer lapse, risk and life cycle.</p>
-      		<button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <i class="fa fa-line-chart" aria-hidden="true"></i></button>
-
+      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / </p>
+      		<h1><b>DAILY PREDICTION : 10-23-2016</b></h1>
+      		<p class="comment">Check out your active GRIDS.</p>
+          <div class="chartbuttons">
+            <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <i class="fa fa-undo" aria-hidden="true"></i></button>
+        		<button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <i class="fa fa-line-chart" aria-hidden="true"></i></button>
+            <button type="button" class="influencebtn btn btn-block btn-primary "><p>INFLUENCE</p> <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+            <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p> <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+          </div>
 	    </section>
 	    <section class="content linegraphsecs">
 		    <div class="linegraphsec">
-				<div class="graphtitle"><p>PREDICTION ACCURACY VERSUS ACTUAL REVENUE</p></div>
-				<div id="chart_preandrev">
+				<div class="graphtitle"><p>FUTURE SHOPPER INTENSIONS AND ACTIVITIES</p></div>
+				<div id="chart_intandact">
 				    <svg style="width:100%;"></svg>
 				</div>
-			  	<button id="add_preandrev">Add data</button>
-				<button id="remove_preandrev">Remove data</button>
-				<button id="show_preandrev">Show data</button>
+			  	<button id="add_intandact">Add data</button>
+				<button id="remove_intandact">Remove data</button>
+				<button id="show_intandact">Show data</button>
 		    </div>
 		    <div class="linegraphsec">
-				<div class="graphtitle"><p>ALGORITHM CONTRIBUTION</p></div>
-				<div id="chart_algorithm">
+				<div class="graphtitle"><p>FUTURE CHANNEL ENGAGEMENT</p></div>
+				<div id="chart_engagement">
 					<svg style="width:100%;"></svg>
 				</div>
-				<button id="add_algorithm">Add data</button>
-				<button id="remove_algorithm">Remove data</button>
-				<button id="show_algorithm">Show data</button>
+				<button id="add_engagement">Add data</button>
+				<button id="remove_engagement">Remove data</button>
+				<button id="show_engagement">Show data</button>
 		    </div>
-		    <div class="linegraphsec">
-				<div class="graphtitle"><p>ALGORITHM CONTRIBUTION</p></div>
-				<div id="chart_algo_cur">
-					<svg style="width:100%;"></svg>
-				</div>
-				<button id="change_algo_cur_data">Change data</button>
-				<button id="show_algo_cur_data">Show data</button>
-			</div>	
 
       	</section>
     </div>
@@ -139,3 +135,4 @@
 
   {{/AdminLTE}}
 </template>
+

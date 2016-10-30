@@ -16,6 +16,9 @@ if (Meteor.isClient) {
     Meteor.subscribe('cursettingline');
     Meteor.subscribe('engagementline');
     Meteor.subscribe('cursettingline');
+    Template.lapse.onRendered(function(){
+        console.log("sdf");
+    })
     Template.lapse.events({
 
         /* predict and actual revenue button events*/
@@ -52,7 +55,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data=[{ "key": 'Age', "bar" : true, "color":'#333', "values": datapredict() },{  "key": 'Age' , "color":'#333',"values":datarevenue()} ];
+                var data=[{ "key": 'Age', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'Age' , "color":'#ed6283',"values":datarevenue()} ];
                 chart.xAxis.tickFormat(function(d) {
                     var dx = data[0].values[d] && data[0].values[d][0] || 0;
                     return d3.time.format('%x')(new Date(dx))
@@ -115,7 +118,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data= [{ "key": 'Age1', "values": algo1data() },{  "key": 'Age2' , "values":algo2data()},{ "key": 'Age3', "values": algo3data() } ];
+                var data= [{ "key": 'Age1', "color":"#91cec6", "values": algo1data() },{  "key": 'Age2', "color":"#ec547a" , "values":algo2data()},{ "key": 'Age3', "color":"#f1a17c", "values": algo3data() } ];
                 chart.xAxis
                     .tickValues([1078030800000,1122782400000,1167541200000])
                     .tickFormat(function(d) {
@@ -186,24 +189,24 @@ if (Meteor.isClient) {
                     {
                         values: sin,      //values - represents the array of {x,y} data points
                         key: 'Sine Wave', //key  - the name of the series.
-                        color: '#ff7f0e'  //color - optional: choose your own line color.
+                        color: '#72c0b3'  //color - optional: choose your own line color.
                     },
                     {
                         values: cos,
                         key: 'Cosine Wave',
-                        color: '#2ca02c'
+                        color: '#eb557b'
                     },
                     {
                         values: sin2,
                         key: 'Another sine wave',
-                        color: '#7777ff',
+                        color: '#a9cadb',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
                 ];
             }
         }
     });
-    Template.main1.events({
+    Template.main.events({
          /* engagement button events*/
         'click #add_engagement': function() {
         /*    var qua1 = getRandomInt(10343432383, 11343432383);
