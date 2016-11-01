@@ -72,23 +72,16 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#">Churn</a></li>
+              <li><a href="/churn">Churn</a></li>
               <li><a href="/lapse">Lapse</a></li>
-              <li><a href="#">Influence</a></li>
-              <li><a href="#">Target</a></li>
+              <li><a href="/influence">Influence</a></li>
+              <li><a href="/target">Target</a></li>
             </ul>
           </li>
-          <li class="treeview">
-            <a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i> <span>ACTION</span>
-              <span class="pull-right-container">
-                <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
-              </span>
+          <li>
+            <a href="/action"><i class="fa fa-arrows-alt" aria-hidden="true"></i> <span>ACTION</span>
             </a>
-            <ul class="treeview-menu">
-              <li><a href="input">Upload Data</a></li>
-              <li><a href="graph">Graphs</a></li>
-              <li><a href="#">Parameters</a></li>
-            </ul>
+            
           </li>
 
         </ul>
@@ -109,23 +102,66 @@
           </div>
 	    </section>
 	    <section class="content linegraphsecs">
+
+        <div class="linegraphsec revenue">
+          <div class="graphtitle"><p>PREDICTED FUTURE REVENUE</p></div>
+          <div id="chart_revenue">
+            {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+          </div>
+          <button class="btn btn-block btn-primary" id="add_revenue">Add data</button>
+          <button class="btn btn-block btn-primary" id="remove_revenue">Remove data</button>
+          <button class="btn btn-block btn-primary" id="show_revenue">Show data</button>
+        </div>
+        <div class="linegraphsec business">
+          <div class="graphtitle"><p>PREDICTED BUSINESS IMPACT</p></div>
+          <div class="business_content">
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right">
+                <p>Reducing risk</p>
+                <p>Total:$2 246 225</p>
+              </div>
+            </div>
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right"> 
+                <p>Reducing waste</p>
+                <p>Total:$2 246 225</p>
+              </div>
+            </div>
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right">
+                <p>Increasing revenue</p>
+                <p>Total:$1 353 345</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
 		    <div class="linegraphsec">
-				<div class="graphtitle"><p>FUTURE SHOPPER INTENSIONS AND ACTIVITIES</p></div>
-				<div id="chart_intandact">
-				    <svg style="width:100%;"></svg>
-				</div>
-			  	<button id="add_intandact">Add data</button>
-				<button id="remove_intandact">Remove data</button>
-				<button id="show_intandact">Show data</button>
+  				<div class="graphtitle"><p>FUTURE SHOPPER INTENSIONS AND ACTIVITIES</p></div>
+  				<div id="chart_intandact">
+  				    <svg style="width:100%;"></svg>
+  				</div>
+  			  	<button class="btn btn-block btn-primary" id="add_intandact">Add data</button>
+  				<button class="btn btn-block btn-primary" id="remove_intandact">Remove data</button>
+  				<button class="btn btn-block btn-primary" id="show_intandact">Show data</button>
 		    </div>
 		    <div class="linegraphsec">
-				<div class="graphtitle"><p>FUTURE CHANNEL ENGAGEMENT</p></div>
-				<div id="chart_engagement">
-					<svg style="width:100%;"></svg>
-				</div>
-				<button id="add_engagement">Add data</button>
-				<button id="remove_engagement">Remove data</button>
-				<button id="show_engagement">Show data</button>
+  				<div class="graphtitle"><p>FUTURE CHANNEL ENGAGEMENT</p></div>
+  				<div id="chart_engagement">
+  					<svg style="width:100%;"></svg>
+  				</div>
+  				<button class="btn btn-block btn-primary" id="add_engagement">Add data</button>
+  				<button class="btn btn-block btn-primary" id="remove_engagement">Remove data</button>
+  				<button class="btn btn-block btn-primary" id="show_engagement">Show data</button>
 		    </div>
 
       	</section>

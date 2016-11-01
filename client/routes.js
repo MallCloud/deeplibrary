@@ -31,6 +31,24 @@ Router.route('/lapse', function() {
   this.render('lapse');
 });
 
+Router.route('/churn', function() {
+  this.render('churn');
+});
+
+Router.route('/action', function() {
+  this.render('action');
+});
+
+Router.route('/influence', function() {
+  this.render('influence');
+});
+
+
+Router.route('/target', function() {
+  this.render('target');
+});
+
+
 
 Router.route('/register', function() {
   this.render('register');

@@ -20,8 +20,14 @@ html, body {
 	left:-45px;
 	text-decoration: none;
 }
+#chart_helmet svg, #chart_jacket svg, #chart_upsell svg{
+	height:60px;
+}
 .skin-blue .content-header{
 	padding: 25px 25px 0 25px;
+}
+.skin-blue .content-wrapper{
+	min-height: calc(100vh - 50px);
 }
 .chartbuttons{
 	width: 100%;
@@ -35,6 +41,57 @@ html, body {
 .chartbuttons button:first-child{
 	margin-left: 0px;
 	display: inline-block;
+}
+#chart_revenue svg>text:last-child{
+	display: none;
+}
+.linegraphsec.business{
+	width:300px;
+	min-width: 300px;
+	height:480px;
+}
+.business_content{
+	padding: 25px;
+}
+.i_p_div:first-child{
+	border-top: solid 1px #dddddd;
+}
+.i_p_div i.fa-exclamation-triangle{
+    color: #eb557b;
+}
+.i_p_div i.fa-trash{
+	color:#70c0b3;
+}
+#chart_revenue g rect{
+	fill:#70c0b3;
+}
+.i_p_div i.fa-line-chart{
+	color:#18455d;
+}
+.i_p_div{
+	border-bottom: solid 1px #dddddd;
+	border-top: none;
+	display: block;
+	height: 130px;
+	padding:20px 20px;
+}
+.i_p_div_left{
+	width: 55px;
+	float: left;
+}
+.i_p_div_left i{
+	font-size: 40px;
+    padding: 20px;
+    padding-left: 0px;
+}
+.i_p_div_right{    
+	float: left;
+	text-align: left;
+    padding: 15px 5px;
+}
+.linegraphsec.revenue{
+	width: calc(100% - 340px);
+	height:480px;
 }
 .skin-blue .sidebar-menu>li{
 	border-bottom: solid 1px #1a7499;
@@ -74,6 +131,13 @@ html, body {
 .content-wrapper{
 	background: #f9f9f9;
 }
+.content.linegraphsecs button{
+	width: 120px;
+	margin:5px;
+}
+.content.linegraphsecs .linegraphsec{
+	text-align: center;
+}
 nav.navbar.navbar-static-top{
 	box-shadow: 10px 10px 10px #dddddd;
 }
@@ -81,6 +145,7 @@ nav.navbar.navbar-static-top{
 	background-color: #f9f9f9;
 }
 .linegraphsec{
+	border-radius: 5px;
 	min-width:450px;
 	background-color: white;
 	float:left;
@@ -88,11 +153,15 @@ nav.navbar.navbar-static-top{
 	margin: 10px;
 	box-shadow: 0 0 30px #888888;
 }
+.linegraphsec.actionp{
+    width: calc(100% - 30px);
+}
 .linegraphsec button{
 	display: inline-block;
 }
 .linegraphsec svg{ 
-	width: 100%;
+    width: 90%;
+    padding-left: 20%;
 	height: 420px;
 }
 #chart_preandrev,#chart_algorithm,#chart_algo_cur{
@@ -100,8 +169,11 @@ nav.navbar.navbar-static-top{
 }
 .linegraphsec .graphtitle{
 	padding:10px 0px;
+	text-align: left;
 	font-size:12px;
 	background-color: #f9f9f9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 	border-bottom:solid 1px #ededed;
 }
 .linegraphsec .graphtitle p{
@@ -173,4 +245,30 @@ nav.navbar.navbar-static-top{
 }
 input.error{
     background-color:rgb(255, 231, 231);
+}
+
+.bullet { font: 10px sans-serif; }
+.bullet .marker { stroke: #000; stroke-width: 2px; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; display: none;}
+.bullet .range.s0 { fill: transparent; }
+.bullet .range.s1 { fill: transparent; }
+.bullet .range.s2 { fill: transparent; }
+.bullet .measure.s0 { fill: lightsteelblue; }
+.bullet .measure.s1 { fill: steelblue; }
+.bullet .title { font-size: 14px; font-weight: bold; }
+.bullet .subtitle { fill: #999; }
+svg.bullet g .s2.measure{
+    fill: steelblue;
+}
+svg.bullet g .measure.s1{
+    fill: red;
+}
+.expimg{
+	text-align: center;
+	padding:20px 0px;
+	border-bottom: solid 1px #dddddd;
+}
+#change_upsell,#change_helmet,#change_jacket{
+	width:200px;
+	margin:10px calc(50% - 100px);
 }

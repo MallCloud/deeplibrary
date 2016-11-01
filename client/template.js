@@ -1,7 +1,7 @@
 /*
  * main.html: index page template
  */
-Template.main.onCreated = function () {
+/*Template.main.onCreated = function () {
     var self = this;
 
     self.minHeight = new ReactiveVar($(window).height() - $('.main-header').height());
@@ -21,7 +21,7 @@ Template.main.onRendered = function () {
         jQuery(".content-wrapper, .right-side").css("min-height",sidebarHeight)
     }
 };
-
+*/
 Template.main.helpers({
     minHeight: function () {
         return Template.instance().minHeight.get() + 'px'

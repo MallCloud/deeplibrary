@@ -16,25 +16,127 @@ if (Meteor.isClient) {
     Meteor.subscribe('cursettingline');
     Meteor.subscribe('engagementline');
     Meteor.subscribe('cursettingline');
-    Template.lapse.onRendered(function(){
-        console.log("sdf");
-    })
-    Template.lapse.events({
+    function show_intandact(){
+        d3.select("#chart_intandact svg").selectAll("*").remove();
+        nv.addGraph(function() {
+                var chart = nv.models.pieChart()
+                    .x(function(d) { return d.label })
+                    .y(function(d) { return d.value })
+                    .showLabels(true);
 
-        /* predict and actual revenue button events*/
-        'click #add_preandrev': function() {
-            var qua1 = getRandomInt(10343432383, 11343432383);
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
+                d3.select("#chart_intandact svg")
+                    .datum(intandactData())
+                    .transition().duration(350)
+                    .call(chart);
+
+                return chart;
+            });
+
            
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
-        },
-        'click #remove_preandrev': function() {
-        },
-        'click #show_preandrev': function() {
-            var chart = nv.models.linePlusBarChart()
+
+            //Intension and activities data. Note how there is only a single array of key-value pairs.
+            function intandactData() {
+                return  [
+                    { 
+                        "label": "One",
+                        "value" : 29.765957771107
+                    } , 
+                    { 
+                        "label": "Two",
+                        "value" : 0
+                    } , 
+                    { 
+                        "label": "Three",
+                        "value" : 32.807804682612
+                    } , 
+                    { 
+                        "label": "Four",
+                        "value" : 196.45946739256
+                    } , 
+                    { 
+                        "label": "Five",
+                        "value" : 40.19434030906893
+                    } , 
+                    { 
+                        "label": "Six",
+                        "value" : 98.079782601442
+                    } , 
+                    { 
+                        "label": "Seven",
+                        "value" : 33.925743130903
+                    } , 
+                    { 
+                        "label": "Eight",
+                        "value" : 55.1387322875705
+                    }
+                ];
+            }
+    }
+    function show_helmet(){
+
+    }
+    function show_engagement(){
+        d3.select("#chart_engagement svg").selectAll("*").remove();
+        nv.addGraph(function() {
+                var chart = nv.models.pieChart()
+                    .x(function(d) { return d.label })
+                    .y(function(d) { return d.value })
+                    .showLabels(true)     //Display pie labels
+                    .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
+                    .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+                    .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+                    .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
+                    ;
+
+                d3.select("#chart_engagement svg")
+                    .datum(engagementData())
+                    .transition().duration(350)
+                    .call(chart);
+
+                return chart;
+            });
+
+            //Engagement data. Note how there is only a single array of key-value pairs.
+            function engagementData() {
+                return  [
+                    { 
+                        "label": "One",
+                        "value" : 100
+                    } , 
+                    { 
+                        "label": "Two",
+                        "value" : 0
+                    } , 
+                    { 
+                        "label": "Three",
+                        "value" : 132.807804682612
+                    } , 
+                    { 
+                        "label": "Four",
+                        "value" : 196.45946739256
+                    } , 
+                    { 
+                        "label": "Five",
+                        "value" : 50.19434030906893
+                    } , 
+                    { 
+                        "label": "Six",
+                        "value" : 98.079782601442
+                    } , 
+                    { 
+                        "label": "Seven",
+                        "value" : 113.925743130903
+                    }  , 
+                    { 
+                        "label": "Eight",
+                        "value" : 215.1387322875705
+                    }
+                ];
+            }
+    }
+    function show_preandrev(){
+        d3.select("#chart_preandrev svg").selectAll("*").remove();
+        var chart = nv.models.linePlusBarChart()
                 .margin({top: 30, right: 60, bottom: 50, left: 70})
                 .x(function(d,i){return i})
                 .y(function(d,i){return d[1]})  
@@ -71,25 +173,10 @@ if (Meteor.isClient) {
                 nv.utils.windowResize(function() { chart.update; });
                 return chart;
             });
-        },
-
-
-
-        /* algorithm contribution 3 lines button events*/
-        'click #add_algorithm': function() {
-            var algo1xval = 1076358400000  ;
-            var algo1yval =  -1.569146943813;
-            var algo2xval = 1076358400000  ;
-            var algo2yval = -11;
-            var algo3xval = 1076358400000  ;
-            var algo3yval =  -5.569146943813;
-           
-            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
-        },
-        'click #remove_algorithm': function() {
-        },
-        'click #show_algorithm': function() {
-           var chart = nv.models.cumulativeLineChart()
+    }
+    function show_algorithm(){
+        d3.select("#chart_algorithm svg").selectAll("*").remove();
+        var chart = nv.models.cumulativeLineChart()
                   .x(function(d) { return d[0] })
                   .y(function(d) { return d[1]/100 }) //adjusting, 100% is 1.00, not 100 as it is in the data
                   .color(d3.scale.category10().range())
@@ -131,21 +218,9 @@ if (Meteor.isClient) {
                     nv.utils.windowResize(function() { chart.update; });
                     return chart;
             });
-        },
-
-
-        /* cureved algorithm button click event */
-        'click #change_algo_cur_data': function() {
-            /*var algo1xval = 1076358400000  ;
-            var algo1yval =  -1.569146943813;
-            var algo2xval = 1076358400000  ;
-            var algo2yval = -11;
-            var algo3xval = 1076358400000  ;
-            var algo3yval =  -5.569146943813;
-           
-            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});*/
-        },
-        'click #show_algo_cur_data': function() {
+    }
+    function show_algo_cur_data(){
+        d3.select("#chart_algo_cur svg").selectAll("*").remove();
             var chart = nv.models.lineChart()
                 .margin({left: 100})  //Adjust chart margins to give the x-axis some breathing room.
                 .useInteractiveGuideline(true)  //We want nice looking tooltips and a guideline!
@@ -202,150 +277,151 @@ if (Meteor.isClient) {
                         color: '#a9cadb',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
-                ];
+                ]; 
             }
+    }
+    Template.lapse.events({
+
+        /* predict and actual revenue button events*/
+        'click #add_preandrev': function() {
+            var qua1 = getRandomInt(10343432383, 11343432383);
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue.insert({x:qua3, y:qua4});
+        },
+        'click #remove_preandrev': function() {
+        },
+        'click #show_preandrev': function() {
+            show_preandrev();
+        },
+
+
+
+        /* algorithm contribution 3 lines button events*/
+        'click #add_algorithm': function() {
+            var algo1xval = 1076358400000  ;
+            var algo1yval =  -1.569146943813;
+            var algo2xval = 1076358400000  ;
+            var algo2yval = -11;
+            var algo3xval = 1076358400000  ;
+            var algo3yval =  -5.569146943813;
+           
+            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
+        },
+        'click #remove_algorithm': function() {
+        },
+        'click #show_algorithm': function() {
+            show_algorithm();
+        },
+
+
+        /* cureved algorithm button click event */
+        'click #change_algo_cur_data': function() {
+        },
+        'click #show_algo_cur_data': function() {
+            show_algo_cur_data();
         }
     });
     Template.main.events({
          /* engagement button events*/
         'click #add_engagement': function() {
-        /*    var qua1 = getRandomInt(10343432383, 11343432383);
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});*/
         },
         'click #remove_engagement': function() {
         },
         'click #show_engagement': function() {
             //Donut chart 
-            nv.addGraph(function() {
-                var chart = nv.models.pieChart()
-                    .x(function(d) { return d.label })
-                    .y(function(d) { return d.value })
-                    .showLabels(true)     //Display pie labels
-                    .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
-                    .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
-                    .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-                    .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
-                    ;
-
-                d3.select("#chart_engagement svg")
-                    .datum(engagementData())
-                    .transition().duration(350)
-                    .call(chart);
-
-                return chart;
-            });
-
-            //Engagement data. Note how there is only a single array of key-value pairs.
-            function engagementData() {
-                return  [
-                    { 
-                        "label": "One",
-                        "value" : 100
-                    } , 
-                    { 
-                        "label": "Two",
-                        "value" : 0
-                    } , 
-                    { 
-                        "label": "Three",
-                        "value" : 132.807804682612
-                    } , 
-                    { 
-                        "label": "Four",
-                        "value" : 196.45946739256
-                    } , 
-                    { 
-                        "label": "Five",
-                        "value" : 50.19434030906893
-                    } , 
-                    { 
-                        "label": "Six",
-                        "value" : 98.079782601442
-                    } , 
-                    { 
-                        "label": "Seven",
-                        "value" : 113.925743130903
-                    }  , 
-                    { 
-                        "label": "Eight",
-                        "value" : 215.1387322875705
-                    }
-                ];
-            }
+            show_engagement();
         },
         /* Intension and activities button events*/
         'click #add_intandact': function() {
-        /*    var qua1 = getRandomInt(10343432383, 11343432383);
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});*/
         },
         'click #remove_intandact': function() {
         },
         'click #show_intandact': function() {
             //Regular pie chart 
-            nv.addGraph(function() {
-                var chart = nv.models.pieChart()
-                    .x(function(d) { return d.label })
-                    .y(function(d) { return d.value })
-                    .showLabels(true);
-
-                d3.select("#chart_intandact svg")
-                    .datum(intandactData())
-                    .transition().duration(350)
-                    .call(chart);
-
-                return chart;
-            });
-
-           
-
-            //Intension and activities data. Note how there is only a single array of key-value pairs.
-            function intandactData() {
-                return  [
-                    { 
-                        "label": "One",
-                        "value" : 29.765957771107
-                    } , 
-                    { 
-                        "label": "Two",
-                        "value" : 0
-                    } , 
-                    { 
-                        "label": "Three",
-                        "value" : 32.807804682612
-                    } , 
-                    { 
-                        "label": "Four",
-                        "value" : 196.45946739256
-                    } , 
-                    { 
-                        "label": "Five",
-                        "value" : 40.19434030906893
-                    } , 
-                    { 
-                        "label": "Six",
-                        "value" : 98.079782601442
-                    } , 
-                    { 
-                        "label": "Seven",
-                        "value" : 33.925743130903
-                    } , 
-                    { 
-                        "label": "Eight",
-                        "value" : 55.1387322875705
-                    }
-                ];
-            }
+            show_intandact();
         }
+    });
+
+    Template.main.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_engagement();
+                show_intandact();
+            });
+            show_engagement();
+            show_intandact();
+        });
+         
+    });
+    Template.lapse.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_preandrev();
+                show_algorithm();
+                show_algo_cur_data();
+            });
+            show_preandrev();
+            show_algorithm();
+            show_algo_cur_data();
+        });
+    });
+
+    Template.target.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_preandrev();
+                show_algorithm();
+                show_algo_cur_data();
+            });
+            show_preandrev();
+            show_algorithm();
+            show_algo_cur_data();
+        });
+    });
+
+    Template.influence.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_preandrev();
+                show_algorithm();
+                show_algo_cur_data();
+            });
+            show_preandrev();
+            show_algorithm();
+            show_algo_cur_data();
+        });
+    });
+
+    Template.churn.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_preandrev();
+                show_algorithm();
+                show_algo_cur_data();
+            });
+            show_preandrev();
+            show_algorithm();
+            show_algo_cur_data();
+        });
+    });
+    Template.action.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                console.log("helmet shows");
+                show_helmet();
+            });
+            show_helmet();
+        });
     });
 }
 
@@ -416,7 +492,7 @@ Template.login.events({
             if (err) {
                 throw new Meteor.Error("Google login failed");
             }else{
-                Router.go("/input");
+                Router.go("/main");
             }
         });
     },
@@ -428,7 +504,7 @@ Template.login.events({
             if(error){
                 sAlert.error(error.reason);
             } else {
-                Router.go("/input");
+                Router.go("/main");
             }
         });
     }
@@ -512,3 +588,64 @@ Template.uploadForm.events({
     }
   }
 });
+// myTemplate.js
+Template.main.topGenresChart = function() {
+    return {
+        chart: {
+            type: 'columnrange',
+            inverted: true
+        },
+
+        title: {
+            text: ''
+        },
+
+
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+
+        yAxis: {
+            title: {
+                text: ''
+            }
+        },
+
+        tooltip: {
+            valueSuffix: '$'
+        },
+
+        plotOptions: {
+            columnrange: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function () {
+                        return this.y + '';
+                    }
+                }
+            }
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'Temperatures',
+            data: [
+                [9, 29],
+                [11, 20],
+                [4, 23],
+                [18, 19.9],
+                [2.0, 22.6],
+                [2.9, 29.5],
+                [9.2, 40.7],
+                [7.3, 26.5],
+                [4.4, 18.0],
+                [3.1, 11.4],
+                [5.2, 10.4],
+                [13.5, 19.8]
+            ]
+        }]
+    };
+};
