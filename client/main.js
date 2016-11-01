@@ -291,6 +291,145 @@ if (Meteor.isClient) {
            
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
+            show_preandrev();
+        },
+        'click #remove_preandrev': function() {
+        },
+        'click #show_preandrev': function() {
+            show_preandrev();
+        },
+
+
+
+        /* algorithm contribution 3 lines button events*/
+        'click #add_algorithm': function() {
+            var algo1xval = 1076358400000  ;
+            var algo1yval =  -1.569146943813;
+            var algo2xval = 1076358400000  ;
+            var algo2yval = -11;
+            var algo3xval = 1076358400000  ;
+            var algo3yval =  -5.569146943813;
+           
+            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
+        },
+        'click #remove_algorithm': function() {
+        },
+        'click #show_algorithm': function() {
+            show_algorithm();
+        },
+
+
+        /* cureved algorithm button click event */
+        'click #change_algo_cur_data': function() {
+        },
+        'click #show_algo_cur_data': function() {
+            show_algo_cur_data();
+        }
+    });
+    Template.churn.events({
+
+        /* predict and actual revenue button events*/
+        'click #add_preandrev': function() {
+            var qua1 = getRandomInt(10343432383, 11343432383);
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue.insert({x:qua3, y:qua4});
+            show_preandrev();
+        },
+        'click #remove_preandrev': function() {
+        },
+        'click #show_preandrev': function() {
+            show_preandrev();
+        },
+
+
+
+        /* algorithm contribution 3 lines button events*/
+        'click #add_algorithm': function() {
+            var algo1xval = 1076358400000  ;
+            var algo1yval =  -1.569146943813;
+            var algo2xval = 1076358400000  ;
+            var algo2yval = -11;
+            var algo3xval = 1076358400000  ;
+            var algo3yval =  -5.569146943813;
+           
+            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
+        },
+        'click #remove_algorithm': function() {
+        },
+        'click #show_algorithm': function() {
+            show_algorithm();
+        },
+
+
+        /* cureved algorithm button click event */
+        'click #change_algo_cur_data': function() {
+        },
+        'click #show_algo_cur_data': function() {
+            show_algo_cur_data();
+        }
+    });
+    Template.target.events({
+
+        /* predict and actual revenue button events*/
+        'click #add_preandrev': function() {
+            var qua1 = getRandomInt(10343432383, 11343432383);
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue.insert({x:qua3, y:qua4});
+            show_preandrev();
+        },
+        'click #remove_preandrev': function() {
+        },
+        'click #show_preandrev': function() {
+            show_preandrev();
+        },
+
+
+
+        /* algorithm contribution 3 lines button events*/
+        'click #add_algorithm': function() {
+            var algo1xval = 1076358400000  ;
+            var algo1yval =  -1.569146943813;
+            var algo2xval = 1076358400000  ;
+            var algo2yval = -11;
+            var algo3xval = 1076358400000  ;
+            var algo3yval =  -5.569146943813;
+           
+            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
+        },
+        'click #remove_algorithm': function() {
+        },
+        'click #show_algorithm': function() {
+            show_algorithm();
+        },
+
+
+        /* cureved algorithm button click event */
+        'click #change_algo_cur_data': function() {
+        },
+        'click #show_algo_cur_data': function() {
+            show_algo_cur_data();
+        }
+    });
+    Template.influence.events({
+
+        /* predict and actual revenue button events*/
+        'click #add_preandrev': function() {
+            var qua1 = getRandomInt(10343432383, 11343432383);
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue.insert({x:qua3, y:qua4});
+            show_preandrev();
         },
         'click #remove_preandrev': function() {
         },
