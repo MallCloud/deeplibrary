@@ -20,6 +20,31 @@ html, body {
 	left:-45px;
 	text-decoration: none;
 }
+#chart_grid_org iframe{
+	width: 100%;
+}
+.linegraphsec.grid_org{
+	background-color: #f7f7f7;
+}
+#chart_grid_org div{
+	position: relative;
+	width: 100%;
+	height: 550px;
+	overflow: hidden;
+}
+#chart_grid_org div iframe{
+	top: -350px;
+	height: 900px;
+	position: absolute;
+	left:0px;
+}
+.linegraphsec.gridbuttons,.linegraphsec.grid_org{
+	width: calc(100% - 20px);
+}
+.content.linegraphsecs .linegraphsec .chartbuttons button{
+	width: 200px;
+    margin: calc(12.5vw - 140px);
+}
 #chart_helmet svg, #chart_jacket svg, #chart_upsell svg{
 	height:60px;
 }
@@ -33,6 +58,25 @@ html, body {
 	width: 100%;
 	display: inline-block;
 	text-align: center;
+}
+.content.linegraphsecs.knowledgesec{
+	padding-top: 0px;
+}
+.linegraphsec .chartbuttons .btn-primary p{
+    font-size: 15px;
+    padding: 5px;
+}
+.linegraphsec .chartbuttons .churnbtn.btn-primary{
+	background: linear-gradient(90deg, #70c0b3 calc(100% - 55px), #509093 55px);
+}
+.linegraphsec .chartbuttons .lapsebtn.btn-primary{
+	background: linear-gradient(90deg, #aa82be calc(100% - 55px), #509093 55px);
+}
+.linegraphsec .chartbuttons .influencebtn.btn-primary{
+	background: linear-gradient(90deg, #f1a07b calc(100% - 55px), #509093 55px);
+}
+.linegraphsec .chartbuttons .targetbtn.btn-primary{
+	background: linear-gradient(90deg, #eb557b calc(100% - 55px), #509093 55px);
 }
 .chartbuttons button{
 	margin: 5px calc(12.5vw - 136px);
@@ -127,6 +171,18 @@ html, body {
 .content-header p.comment{
 	font-size: 16px;
 	letter-spacing: 2px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.knowledgesec.content.linegraphsecs .linegraphsec{
+	margin-bottom: 15px;
+}
+.content p.comment{
+	font-size: 16px;
+	letter-spacing: 2px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    margin-left: 10px;
 }
 .content-wrapper{
 	background: #f9f9f9;

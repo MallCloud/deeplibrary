@@ -16,6 +16,65 @@ if (Meteor.isClient) {
     Meteor.subscribe('cursettingline');
     Meteor.subscribe('engagementline');
     Meteor.subscribe('cursettingline');
+    function show_grid_org(){
+        nv.addGraph(function() {
+          var chart = nv.models.scatterChart()
+                        .showDistX(true)    //showDist, when true, will display those little distribution lines on the axis.
+                        .showDistY(true)
+                        .transitionDuration(350)
+                        .color(d3.scale.category10().range());
+
+          //Configure how the tooltip looks.
+          chart.tooltipContent(function(key) {
+              return '<h3>' + key + '</h3>';
+          });
+
+          //Axis settings
+          chart.xAxis.tickFormat(d3.format('.02f'));
+          chart.yAxis.tickFormat(d3.format('.02f'));
+
+          //We want to show shapes other than circles.
+          chart.scatter.onlyCircles(false);
+
+          var myData = randomData(4,40);
+          d3.select('#chart_fut_rev svg')
+              .datum(myData)
+              .call(chart);
+
+          nv.utils.windowResize(chart.update);
+
+          return chart;
+        });
+    }
+
+    /**************************************
+     * Simple test data generator
+     */
+    function randomData(groups, points) { //# groups,# points per group
+      var data = [],
+          shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square'],
+          random = d3.random.normal();
+
+      for (i = 0; i < groups; i++) {
+        data.push({
+          key: 'Group ' + i,
+          values: []
+        });
+
+        for (j = 0; j < points; j++) {
+          data[i].values.push({
+            x: random()
+          , y: random()
+          , size: Math.random()   //Configure the size of each scatter point
+          , shape: (Math.random() > 0.95) ? shapes[j % 6] : "circle"  //Configure the shape of each scatter point.
+          });
+        }
+      }
+
+      return data;
+    }
+    
+
     function show_intandact(){
         d3.select("#chart_intandact svg").selectAll("*").remove();
         nv.addGraph(function() {
@@ -418,6 +477,57 @@ if (Meteor.isClient) {
             show_algo_cur_data();
         }
     });
+
+    Template.knowledge.events({
+
+        /* predict and actual revenue button events*/
+        'click #add_preandrev': function() {
+            var qua1 = getRandomInt(10343432383, 11343432383);
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue.insert({x:qua3, y:qua4});
+            show_preandrev();
+        },
+        'click #remove_preandrev': function() {
+        },
+        'click #show_preandrev': function() {
+            show_preandrev();
+        },
+
+        'click #change_grid_org': function() {
+        },
+        'click #show_grid_org': function() {
+            console.log("sdf");
+        },
+
+        /* algorithm contribution 3 lines button events*/
+        'click #add_algorithm': function() {
+            var algo1xval = 1076358400000  ;
+            var algo1yval =  -1.569146943813;
+            var algo2xval = 1076358400000  ;
+            var algo2yval = -11;
+            var algo3xval = 1076358400000  ;
+            var algo3yval =  -5.569146943813;
+           
+            algo.insert({algo1x:algo1xval, algo1y:algo1yval,algo2x:algo2xval, algo2y:algo2yval,algo3x:algo3xval, algo3y:algo3yval});
+        },
+        'click #remove_algorithm': function() {
+        },
+        'click #show_algorithm': function() {
+            show_algorithm();
+        },
+
+
+        /* cureved algorithm button click event */
+        'click #change_algo_cur_data': function() {
+        },
+        'click #show_algo_cur_data': function() {
+            show_algo_cur_data();
+        }
+    });
     Template.influence.events({
 
         /* predict and actual revenue button events*/
@@ -501,13 +611,31 @@ if (Meteor.isClient) {
          _.defer(function () {
 
             Deps.autorun(function () {
+                Tracker.afterFlush(function(){
                 show_preandrev();
                 show_algorithm();
-                show_algo_cur_data();
-            });
+                show_algo_cur_data();}.bind(this));
+            }.bind(this));
             show_preandrev();
             show_algorithm();
             show_algo_cur_data();
+        });
+    });
+
+    Template.knowledge.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                Tracker.afterFlush(function(){
+                show_preandrev();
+                show_algorithm();
+                show_algo_cur_data();
+                show_grid_org();}.bind(this));
+            }.bind(this));
+            show_preandrev();
+            show_algorithm();
+            show_algo_cur_data();
+            show_grid_org();
         });
     });
 

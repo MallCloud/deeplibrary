@@ -10,6 +10,10 @@ Router.route('/login', function () {
 Router.route('/main', function() {
   this.render('main');
 });
+
+Router.route('/knowledge', function() {
+  this.render('knowledge');
+});
 /*
 Router.route('/main1', function() {
   this.render('main1');
