@@ -1,9 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      host: '52.41.186.122',
+      host: '35.160.251.195',
       username: 'ubuntu',
-      pem: 'aws-key/xanthelabs.pem'
+      pem: 'aws-key/kockajimmy'
       // password:
       // or leave blank for authenticate from ssh-agent
     }
@@ -11,7 +11,7 @@ module.exports = {
 
   meteor: {
     name: 'deeplibrary',
-    path: '/home/cortana/Projects/JSProjects/deeplibrary',
+    path: '/home/cortana/Desktop/deeplibrary',
     servers: {
       one: {}
     },
@@ -20,7 +20,7 @@ module.exports = {
     },
     env: {
     	PORT: 3000,
-      ROOT_URL: 'http://52.41.186.122:3000',
+      ROOT_URL: 'http://35.160.251.195:3000',
       MONGO_URL: 'mongodb://localhost/meteor'
     },
 
