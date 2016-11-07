@@ -16,7 +16,8 @@ if (Meteor.isClient) {
     Meteor.subscribe('cursettingline');
     Meteor.subscribe('engagementline');
     Meteor.subscribe('cursettingline');
-    function show_grid_org(){
+    Meteor.subscribe('grid_orgline');
+    function show_fut_rev(){
         nv.addGraph(function() {
           var chart = nv.models.scatterChart()
                         .showDistX(true)    //showDist, when true, will display those little distribution lines on the axis.
@@ -350,7 +351,8 @@ if (Meteor.isClient) {
            
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
-            show_preandrev();
+            //show_preandrev();
+            $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
         },
@@ -362,6 +364,7 @@ if (Meteor.isClient) {
 
         /* algorithm contribution 3 lines button events*/
         'click #add_algorithm': function() {
+            $("#algorithmdata_add_form").modal('show');
             var algo1xval = 1076358400000  ;
             var algo1yval =  -1.569146943813;
             var algo2xval = 1076358400000  ;
@@ -380,6 +383,7 @@ if (Meteor.isClient) {
 
         /* cureved algorithm button click event */
         'click #change_algo_cur_data': function() {
+            $("#algo_cur_data_add_form").modal('show');
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
@@ -396,7 +400,8 @@ if (Meteor.isClient) {
            
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
-            show_preandrev();
+            //show_preandrev();
+            $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
         },
@@ -408,6 +413,7 @@ if (Meteor.isClient) {
 
         /* algorithm contribution 3 lines button events*/
         'click #add_algorithm': function() {
+            $("#algorithmdata_add_form").modal('show');
             var algo1xval = 1076358400000  ;
             var algo1yval =  -1.569146943813;
             var algo2xval = 1076358400000  ;
@@ -426,6 +432,7 @@ if (Meteor.isClient) {
 
         /* cureved algorithm button click event */
         'click #change_algo_cur_data': function() {
+            $("#algo_cur_data_add_form").modal('show');
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
@@ -442,7 +449,8 @@ if (Meteor.isClient) {
            
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
-            show_preandrev();
+            //show_preandrev();
+            $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
         },
@@ -454,6 +462,7 @@ if (Meteor.isClient) {
 
         /* algorithm contribution 3 lines button events*/
         'click #add_algorithm': function() {
+            $("#algorithmdata_add_form").modal('show');
             var algo1xval = 1076358400000  ;
             var algo1yval =  -1.569146943813;
             var algo2xval = 1076358400000  ;
@@ -472,6 +481,7 @@ if (Meteor.isClient) {
 
         /* cureved algorithm button click event */
         'click #change_algo_cur_data': function() {
+            $("#algo_cur_data_add_form").modal('show');
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
@@ -489,7 +499,8 @@ if (Meteor.isClient) {
            
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
-            show_preandrev();
+            //show_preandrev();
+            $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
         },
@@ -497,14 +508,16 @@ if (Meteor.isClient) {
             show_preandrev();
         },
 
-        'click #change_grid_org': function() {
+        'click #add_fut_rev': function() {
+            $("#predata_add_form").modal('show');
         },
-        'click #show_grid_org': function() {
+        'click #show_fut_rev': function() {
             console.log("sdf");
         },
 
         /* algorithm contribution 3 lines button events*/
         'click #add_algorithm': function() {
+            $("#algorithmdata_add_form").modal('show');
             var algo1xval = 1076358400000  ;
             var algo1yval =  -1.569146943813;
             var algo2xval = 1076358400000  ;
@@ -523,9 +536,14 @@ if (Meteor.isClient) {
 
         /* cureved algorithm button click event */
         'click #change_algo_cur_data': function() {
+            $("#algo_cur_data_add_form").modal('show');
+
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
+        },
+        'click #change_grid_org' : function(){
+            $("#data_add_form").modal('show');
         }
     });
     Template.influence.events({
@@ -540,6 +558,7 @@ if (Meteor.isClient) {
             predict.insert({x:qua1, y:qua2});
             revenue.insert({x:qua3, y:qua4});
             show_preandrev();
+            $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
         },
@@ -551,6 +570,7 @@ if (Meteor.isClient) {
 
         /* algorithm contribution 3 lines button events*/
         'click #add_algorithm': function() {
+            $("#algorithmdata_add_form").modal('show');
             var algo1xval = 1076358400000  ;
             var algo1yval =  -1.569146943813;
             var algo2xval = 1076358400000  ;
@@ -569,6 +589,7 @@ if (Meteor.isClient) {
 
         /* cureved algorithm button click event */
         'click #change_algo_cur_data': function() {
+            $("#algo_cur_data_add_form").modal('show');
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
@@ -630,12 +651,12 @@ if (Meteor.isClient) {
                 show_preandrev();
                 show_algorithm();
                 show_algo_cur_data();
-                show_grid_org();}.bind(this));
+                show_fut_rev();}.bind(this));
             }.bind(this));
             show_preandrev();
             show_algorithm();
             show_algo_cur_data();
-            show_grid_org();
+            show_fut_rev();
         });
     });
 
@@ -729,6 +750,47 @@ Meteor.startup(function () {
     });
 
 });
+Template.data_update_form.events({
+    'submit .js-add-data': function(event){
+        var learningRate, activations, regularizations, regularRate, problem;
+        learningRate = event.target.learningRate.value;
+        activations = event.target.activations.value;
+        regularizations = event.target.regularizations.value;
+        regularRate = event.target.regularRate.value;
+        problem = event.target.problem.value;
+        var grid_org_data = grid_org.find();
+        if(grid_org_data.count()){
+            grid_org.update({_id:"user"},{$set:{
+                learningRate: learningRate,
+                activations: activations,
+                regularizations: regularizations,
+                regularRate: regularRate,
+                problem: problem
+            }});
+        }
+        else{
+            grid_org.insert({
+                _id:"user",
+                learningRate: learningRate,
+                activations: activations,
+                regularizations: regularizations,
+                regularRate: regularRate,
+                problem: problem
+            })
+        }
+        $("#data_add_form").modal('hide');
+        return false;
+    }
+})
+Template.knowledge.helpers({
+    grid_org_data: function(){
+        var results;
+        grid_org.find().map(function(predict){
+            results=predict;
+        });
+        return results;
+    }
+})
 Template.register.events({
     'submit form': function(event){
         event.preventDefault();

@@ -33,8 +33,8 @@ html, body {
 	overflow: hidden;
 }
 #chart_grid_org div iframe{
-	top: -350px;
-	height: 900px;
+	top: -140px;
+	height: 790px;
 	position: absolute;
 	left:0px;
 }
@@ -43,7 +43,7 @@ html, body {
 }
 .content.linegraphsecs .linegraphsec .chartbuttons button{
 	width: 200px;
-    margin: calc(12.5vw - 140px);
+    margin: 20px calc(12.5vw - 140px);
 }
 #chart_helmet svg, #chart_jacket svg, #chart_upsell svg{
 	height:60px;
@@ -67,16 +67,16 @@ html, body {
     padding: 5px;
 }
 .linegraphsec .chartbuttons .churnbtn.btn-primary{
-	background: linear-gradient(90deg, #70c0b3 calc(100% - 55px), #509093 55px);
+	background: linear-gradient(90deg, #8dcdc2 calc(100% - 55px), #70c0b3 55px);
 }
 .linegraphsec .chartbuttons .lapsebtn.btn-primary{
-	background: linear-gradient(90deg, #aa82be calc(100% - 55px), #509093 55px);
+	background: linear-gradient(90deg, #ba9bcb calc(100% - 55px), #a982be 55px);
 }
 .linegraphsec .chartbuttons .influencebtn.btn-primary{
-	background: linear-gradient(90deg, #f1a07b calc(100% - 55px), #509093 55px);
+	background: linear-gradient(90deg, #f4b395 calc(100% - 55px), #f1a07b 55px);
 }
 .linegraphsec .chartbuttons .targetbtn.btn-primary{
-	background: linear-gradient(90deg, #eb557b calc(100% - 55px), #509093 55px);
+	background: linear-gradient(90deg, #ef7795 calc(100% - 55px), #eb557b 55px);
 }
 .chartbuttons button{
 	margin: 5px calc(12.5vw - 136px);
@@ -329,4 +329,14 @@ svg.bullet g .measure.s1{
 #change_upsell,#change_helmet,#change_jacket{
 	width:200px;
 	margin:10px calc(50% - 100px);
+}
+#data_add_form p{
+	width: 120px;
+	float: left;
+}
+#data_add_form select{
+	width: calc(100% - 120px);
+}
+.data_form_div{
+	padding:10px;
 }

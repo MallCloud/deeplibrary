@@ -13,6 +13,21 @@ Router.route('/main', function() {
 
 Router.route('/knowledge', function() {
   this.render('knowledge');
+  this.render('data_update_form',{
+    to:'modal'
+  });
+  this.render('predata_update_form',{
+    to:'modal_pre'
+  });
+  this.render('algorithmdata_update_form',{
+    to:'modal_algorithm'
+  });
+  this.render('preandrev_update_form',{
+    to:'modal_preandrev'
+  });
+  this.render('algo_cur_data_update_form',{
+    to:'modal_algo_cur_data'
+  });
 });
 /*
 Router.route('/main1', function() {
@@ -33,10 +48,28 @@ Router.route('/settings', function() {
 */
 Router.route('/lapse', function() {
   this.render('lapse');
+  this.render('algorithmdata_update_form',{
+    to:'modal_algorithm'
+  });
+  this.render('preandrev_update_form',{
+    to:'modal_preandrev'
+  });
+  this.render('algo_cur_data_update_form',{
+    to:'modal_algo_cur_data'
+  });
 });
 
 Router.route('/churn', function() {
   this.render('churn');
+  this.render('algorithmdata_update_form',{
+    to:'modal_algorithm'
+  });
+  this.render('preandrev_update_form',{
+    to:'modal_preandrev'
+  });
+  this.render('algo_cur_data_update_form',{
+    to:'modal_algo_cur_data'
+  });
 });
 
 Router.route('/action', function() {
@@ -45,11 +78,29 @@ Router.route('/action', function() {
 
 Router.route('/influence', function() {
   this.render('influence');
+  this.render('algorithmdata_update_form',{
+    to:'modal_algorithm'
+  });
+  this.render('preandrev_update_form',{
+    to:'modal_preandrev'
+  });
+  this.render('algo_cur_data_update_form',{
+    to:'modal_algo_cur_data'
+  });
 });
 
 
 Router.route('/target', function() {
   this.render('target');
+  this.render('algorithmdata_update_form',{
+    to:'modal_algorithm'
+  });
+  this.render('preandrev_update_form',{
+    to:'modal_preandrev'
+  });
+  this.render('algo_cur_data_update_form',{
+    to:'modal_algo_cur_data'
+  });
 });
 
 

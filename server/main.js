@@ -22,6 +22,9 @@ Meteor.publish('engagementline', function(){
 Meteor.publish('intandactline', function(){
 	return intandact.find();
 })
+Meteor.publish('grid_orgline', function(){
+	return grid_org.find();
+})
 Meteor.startup(() => {
   // code to run on server at startup
   

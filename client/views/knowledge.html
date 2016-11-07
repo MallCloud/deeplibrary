@@ -1,6 +1,10 @@
 <template name="knowledge">
   {{#AdminLTE skin="blue"}}
-
+  {{> yield "modal"}}
+  {{> yield "modal_pre"}}
+  {{> yield "modal_algorithm"}}
+  {{> yield "modal_preandrev"}}
+  {{> yield "modal_algo_cur_data"}}
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
@@ -108,12 +112,19 @@
           </div>
           </div>
         </div>
+          <!--    {{#if grid_org_data.regularizations}}regularization={{grid_org_data.regularizations}} {{/if}}-->
         <p class="comment">Knowledge GRIDS organization</p>
         <div class="linegraphsec grid_org">
           <div class="graphtitle"><p>KNOWLEDGE GRIDS STRUCTURE</p></div>
           <div id="chart_grid_org">
             <div>
-              <iframe  scrolling="no" align="bottom" frameborder="0" src="http://playground.tensorflow.org/#activation=sigmoid&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.1&regularizationRate=0&noise=0&networkShape=4,2&seed=0.38541&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false #main-part"></iframe>
+
+              <iframe  scrolling="no" align="bottom" frameborder="0" src="http://playground.tensorflow.org/#activation={{grid_org_data.activations}}&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate={{grid_org_data.learningRate}}&regularizationRate={{grid_org_data.regularRate}}&noise=0&networkShape=4,2&seed=0.38541&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem={{grid_org_data.problem}}&initZero=false&hideText=false #main-part"></iframe>
+              
+              <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <i class="fa fa-undo" aria-hidden="true"></i></button>
+              <button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <i class="fa fa-line-chart" aria-hidden="true"></i></button>
+              <button type="button" class="influencebtn btn btn-block btn-primary "><p>INFLUENCE</p> <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+              <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p> <i class="fa fa-trophy" aria-hidden="true"></i></button>
             </div>
           </div>
           <button class="btn btn-block btn-primary" id="change_grid_org">Change data</button>
@@ -164,4 +175,3 @@
 
   {{/AdminLTE}}
 </template>
-
