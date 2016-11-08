@@ -4,8 +4,8 @@ import './main.html';
 
 
 if (Meteor.isClient) {
-    if (Meteor.users.findOne({email:"tim081489@yahoo.com"})==false){
-        Roles.addUsersToRoles(Accounts.createUser({email: "tim081489@yahoo.com", password: "test1234"}), ['admin'], 'default-group');
+    if (Meteor.users.findOne({email:"test@yahoo.com"})==false){
+        Roles.addUsersToRoles(Accounts.createUser({email: "test@yahoo.com", password: "test1234"}), ['admin'], 'default-group');
       }
     Meteor.subscribe('files.images.all');
     function getRandomInt(min, max) {
@@ -122,8 +122,10 @@ if (Meteor.isClient) {
         nv.addGraph(function() {
                 var chart = nv.models.pieChart()
                     .x(function(d) { return d.label })
-                    .y(function(d) { return d.value })
-                    .showLabels(true);
+                    .y(function(d) { return d.value }) //Configure the minimum slice size for labels to show up
+                    
+                    .showLabels(true).donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+                    .donutRatio(0.35);
 
                 d3.select("#chart_intandact svg")
                     .datum(intandactData())
@@ -139,37 +141,29 @@ if (Meteor.isClient) {
             function intandactData() {
                 return  [
                     { 
-                        "label": "One",
-                        "value" : 29.765957771107
+                        "label": "Cruisin",
+                        "value" : 5.99
                     } , 
                     { 
-                        "label": "Two",
-                        "value" : 0
+                        "label": "Snowmobile",
+                        "value" : 33.9
                     } , 
                     { 
-                        "label": "Three",
-                        "value" : 32.807804682612
+                        "label": "Harley",
+                        "value" : 5.55
                     } , 
                     { 
-                        "label": "Four",
-                        "value" : 196.45946739256
+                        "label": "Racing",
+                        "value" : 15.48
                     } , 
                     { 
-                        "label": "Five",
-                        "value" : 40.19434030906893
+                        "label": "Street",
+                        "value" : 11.89
                     } , 
                     { 
-                        "label": "Six",
-                        "value" : 98.079782601442
-                    } , 
-                    { 
-                        "label": "Seven",
-                        "value" : 33.925743130903
-                    } , 
-                    { 
-                        "label": "Eight",
-                        "value" : 55.1387322875705
-                    }
+                        "label": "Tourism",
+                        "value" : 9.29
+                    } 
                 ];
             }
     }
@@ -185,8 +179,7 @@ if (Meteor.isClient) {
                     .showLabels(true)     //Display pie labels
                     .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
                     .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
-                    .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-                    .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
+                         //Configure how big you want the donut hole size to be.
                     ;
 
                 d3.select("#chart_engagement svg")
@@ -201,37 +194,21 @@ if (Meteor.isClient) {
             function engagementData() {
                 return  [
                     { 
-                        "label": "One",
-                        "value" : 100
+                        "label": "SEO",
+                        "value" :11.89
                     } , 
                     { 
-                        "label": "Two",
-                        "value" : 0
+                        "label": "Web",
+                        "value" : 29.39
                     } , 
                     { 
-                        "label": "Three",
-                        "value" : 132.807804682612
+                        "label": "Store",
+                        "value" : 5.99
                     } , 
                     { 
-                        "label": "Four",
-                        "value" : 196.45946739256
-                    } , 
-                    { 
-                        "label": "Five",
-                        "value" : 50.19434030906893
-                    } , 
-                    { 
-                        "label": "Six",
-                        "value" : 98.079782601442
-                    } , 
-                    { 
-                        "label": "Seven",
-                        "value" : 113.925743130903
-                    }  , 
-                    { 
-                        "label": "Eight",
-                        "value" : 215.1387322875705
-                    }
+                        "label": "Email",
+                        "value" : 3.9
+                    } 
                 ];
             }
     }

@@ -355,3 +355,54 @@ svg.bullet g .measure.s1{
 #chart_revenue g rect:nth-child(11){
 	fill:red;
 }
+.linegraphsec table{
+	width: 100%;
+	text-align: center;
+}
+.linegraphsec table th,.linegraphsec table td{
+	width: 20%;
+	text-align: center;
+	color:grey;
+}
+.linegraphsec table tr{
+    height: 30px;
+	text-align: center;
+}
+.linegraphsec table td div{
+	margin:0 auto;
+	border-radius: 100px;
+	width: 15px;
+	height: 15px;
+	background: black;
+}
+.linegraphsec div.one{
+	background: #1f5788;
+	height:15px;
+	width: 15px;
+	border-radius: 100px;
+}
+.table_select p.table_comment{
+	float: left;
+	margin-top: 0px;
+}
+.linegraphsec div.two{
+	background: red;
+	height:15px;
+	border-radius: 100px;
+	width: 15px;
+}
+.linegraphsec div.three{
+	height:15px;
+	width: 15px;
+	border-radius: 100px;
+    background: #dddddd;
+}
+.table_select{
+	display: inline-block;
+}
+.table_select div{
+	float: left;
+	margin-top: 3px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
