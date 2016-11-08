@@ -37,7 +37,7 @@ if (Meteor.isClient) {
           //We want to show shapes other than circles.
           chart.scatter.onlyCircles(false);
 
-          var myData = randomData(4,40);
+          var myData = randomData(3,40);
           d3.select('#chart_fut_rev svg')
               .datum(myData)
               .call(chart);
@@ -56,7 +56,7 @@ if (Meteor.isClient) {
           shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square'],
           random = d3.random.normal();
 
-      for (i = 0; i < groups; i++) {
+      /*for (i = 0; i < groups; i++) {
         data.push({
           key: 'Group ' + i,
           values: []
@@ -70,8 +70,46 @@ if (Meteor.isClient) {
           , shape: (Math.random() > 0.95) ? shapes[j % 6] : "circle"  //Configure the shape of each scatter point.
           });
         }
-      }
+      }*/
+        data.push({
+          key: 'ALGORITHM A',
+          values: []
+        });
 
+        for (j = 0; j < points; j++) {
+          data[0].values.push({
+            x: random()
+          , y: random()
+          , size: Math.random()   //Configure the size of each scatter point
+          , shape: (Math.random() > 0.95) ? shapes[j % 6] : "circle"  //Configure the shape of each scatter point.
+          });
+        }
+        data.push({
+          key: 'ALGORITHM B',
+          values: []
+        });
+
+        for (j = 0; j < points; j++) {
+          data[1].values.push({
+            x: random()
+          , y: random()
+          , size: Math.random()   //Configure the size of each scatter point
+          , shape: (Math.random() > 0.95) ? shapes[j % 6] : "circle"  //Configure the shape of each scatter point.
+          });
+        }
+        data.push({
+          key: 'ALGORITHM C',
+          values: []
+        });
+
+        for (j = 0; j < points; j++) {
+          data[2].values.push({
+            x: random()
+          , y: random()
+          , size: Math.random()   //Configure the size of each scatter point
+          , shape: (Math.random() > 0.95) ? shapes[j % 6] : "circle"  //Configure the shape of each scatter point.
+          });
+        }
       return data;
     }
     
@@ -217,7 +255,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data=[{ "key": 'Age', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'Age' , "color":'#ed6283',"values":datarevenue()} ];
+                var data=[{ "key": 'ALGORITHM A', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'ALGORITHM B' , "color":'#ed6283',"values":datarevenue()} ];
                 chart.xAxis.tickFormat(function(d) {
                     var dx = data[0].values[d] && data[0].values[d][0] || 0;
                     return d3.time.format('%x')(new Date(dx))
@@ -265,7 +303,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data= [{ "key": 'Age1', "color":"#91cec6", "values": algo1data() },{  "key": 'Age2', "color":"#ec547a" , "values":algo2data()},{ "key": 'Age3', "color":"#f1a17c", "values": algo3data() } ];
+                var data= [{ "key": 'ALGORITHM A', "color":"#91cec6", "values": algo1data() },{  "key": 'ALGORITHM B', "color":"#ec547a" , "values":algo2data()},{ "key": 'ALGORITHM C', "color":"#f1a17c", "values": algo3data() } ];
                 chart.xAxis
                     .tickValues([1078030800000,1122782400000,1167541200000])
                     .tickFormat(function(d) {
@@ -323,17 +361,17 @@ if (Meteor.isClient) {
                 return [
                     {
                         values: sin,      //values - represents the array of {x,y} data points
-                        key: 'Sine Wave', //key  - the name of the series.
+                        key: 'ALGORITHM A', //key  - the name of the series.
                         color: '#72c0b3'  //color - optional: choose your own line color.
                     },
                     {
                         values: cos,
-                        key: 'Cosine Wave',
+                        key: 'ALGORITHM B',
                         color: '#eb557b'
                     },
                     {
                         values: sin2,
-                        key: 'Another sine wave',
+                        key: 'ALGORITHM C',
                         color: '#a9cadb',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
@@ -342,6 +380,9 @@ if (Meteor.isClient) {
     }
     Template.lapse.events({
 
+        'click .lapsebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
             var qua1 = getRandomInt(10343432383, 11343432383);
@@ -390,7 +431,9 @@ if (Meteor.isClient) {
         }
     });
     Template.churn.events({
-
+        'click .churnbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
             var qua1 = getRandomInt(10343432383, 11343432383);
@@ -440,6 +483,9 @@ if (Meteor.isClient) {
     });
     Template.target.events({
 
+        'click .targetbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
             var qua1 = getRandomInt(10343432383, 11343432383);
@@ -490,6 +536,18 @@ if (Meteor.isClient) {
 
     Template.knowledge.events({
 
+        'click .lapsebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .targetbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .influencebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .churnbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
             var qua1 = getRandomInt(10343432383, 11343432383);
@@ -548,6 +606,9 @@ if (Meteor.isClient) {
     });
     Template.influence.events({
 
+        'click .influencebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
             var qua1 = getRandomInt(10343432383, 11343432383);
@@ -596,6 +657,18 @@ if (Meteor.isClient) {
         }
     });
     Template.main.events({
+        'click .lapsebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .targetbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .influencebtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
+        'click .churnbtn' : function() {
+            $("#churn_add_form").modal('show');
+        },
          /* engagement button events*/
         'click #add_engagement': function() {
         },
@@ -791,6 +864,9 @@ Template.knowledge.helpers({
         return results;
     }
 })
+Template.registerHelper('isUserInRole', function(role){
+    return Roles.userIsInRole(Meteor.user(), ['admin'],'default-group');
+});
 Template.register.events({
     'submit form': function(event){
         event.preventDefault();
@@ -972,8 +1048,8 @@ Template.main.topGenresChart = function() {
                 [7.3, 26.5],
                 [4.4, 18.0],
                 [3.1, 11.4],
-                [5.2, 10.4],
-                [13.5, 19.8]
+                [5.2, 10.4]/*,
+                [13.5, 19.8]*/
             ]
         }]
     };

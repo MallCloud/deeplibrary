@@ -1,10 +1,14 @@
 <template name="knowledge">
   {{#AdminLTE skin="blue"}}
+
+  {{#if isUserInRole 'admin'}}
   {{> yield "modal"}}
   {{> yield "modal_pre"}}
+  {{> yield "modal_churndata"}}
   {{> yield "modal_algorithm"}}
   {{> yield "modal_preandrev"}}
   {{> yield "modal_algo_cur_data"}}
+  {{/if}}
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
@@ -28,7 +32,7 @@
             
             <!-- User Account: style can be found in dropdown.less -->
             <li>
-               <a>COMPANY1</a>
+               <a>Cycle Gear</a>
             </li>
             <li class="logout">
             	<a href="login">LOG OUT</a>
@@ -127,8 +131,10 @@
               <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p> <i class="fa fa-trophy" aria-hidden="true"></i></button>
             </div>
           </div>
+        {{#if isUserInRole 'admin'}}
           <button class="btn btn-block btn-primary" id="change_grid_org">Change data</button>
           <button class="btn btn-block btn-primary" id="show_grid_org">Show data</button>
+        {{/if}}
         </div>
         <p class="comment">Knowledge GRIDS performance</p>
 
@@ -137,35 +143,43 @@
         <div id="chart_fut_rev">
           <svg style="width:100%;"></svg>
         </div>
+        {{#if isUserInRole 'admin'}}
         <button class="btn btn-block btn-primary" id="add_fut_rev">Add data</button>
         <button class="btn btn-block btn-primary" id="remove_fut_rev">Remove data</button>
         <button class="btn btn-block btn-primary" id="show_fut_rev">Refresh data</button>
+        {{/if}}
         </div>
         <div class="linegraphsec">
         <div class="graphtitle"><p>ALGORITHM CONTRIBUTION</p></div>
         <div id="chart_algorithm">
           <svg style="width:100%;"></svg>
         </div>
+        {{#if isUserInRole 'admin'}}
         <button class="btn btn-block btn-primary" id="add_algorithm">Add data</button>
         <button class="btn btn-block btn-primary" id="remove_algorithm">Remove data</button>
         <button class="btn btn-block btn-primary" id="show_algorithm">Refresh data</button>
+        {{/if}}
         </div>
         <div class="linegraphsec">
         <div class="graphtitle"><p>ALGORITHM PREDICTION ACCURACY</p></div>
         <div id="chart_algo_cur">
           <svg style="width:100%;"></svg>
         </div>
+        {{#if isUserInRole 'admin'}}
         <button class="btn btn-block btn-primary" id="change_algo_cur_data">Change data</button>
         <button class="btn btn-block btn-primary" id="show_algo_cur_data">Refresh data</button>
+        {{/if}}
         </div>  
         <div class="linegraphsec">
         <div class="graphtitle"><p>PREDICTION ACCURACY VERSUS ACTUAL REVENUE</p></div>
         <div id="chart_preandrev">
             <svg style="width:100%;"></svg>
         </div>
+        {{#if isUserInRole 'admin'}}
           <button class="btn btn-block btn-primary" id="add_preandrev">Add data</button>
         <button class="btn btn-block btn-primary" id="remove_preandrev">Remove data</button>
         <button class="btn btn-block btn-primary" id="show_preandrev">Refresh data</button>
+        {{/if}}
         </div>
 
       	</section>

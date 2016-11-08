@@ -9,10 +9,16 @@ Router.route('/login', function () {
 
 Router.route('/main', function() {
   this.render('main');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
 });
 
 Router.route('/knowledge', function() {
   this.render('knowledge');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
   this.render('data_update_form',{
     to:'modal'
   });
@@ -48,6 +54,9 @@ Router.route('/settings', function() {
 */
 Router.route('/lapse', function() {
   this.render('lapse');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
   this.render('algorithmdata_update_form',{
     to:'modal_algorithm'
   });
@@ -61,6 +70,9 @@ Router.route('/lapse', function() {
 
 Router.route('/churn', function() {
   this.render('churn');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
   this.render('algorithmdata_update_form',{
     to:'modal_algorithm'
   });
@@ -78,6 +90,9 @@ Router.route('/action', function() {
 
 Router.route('/influence', function() {
   this.render('influence');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
   this.render('algorithmdata_update_form',{
     to:'modal_algorithm'
   });
@@ -92,6 +107,9 @@ Router.route('/influence', function() {
 
 Router.route('/target', function() {
   this.render('target');
+  this.render('churndata_update_form',{
+    to:'modal_churndata'
+  });
   this.render('algorithmdata_update_form',{
     to:'modal_algorithm'
   });

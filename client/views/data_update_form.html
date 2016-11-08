@@ -226,3 +226,42 @@
     </div>
   </div>
 </template>
+<template name="churndata_update_form">
+  <div class="modal fade" id="churn_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">  
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>Models</p>
+              <input type="number" name="model_count" id="model_count" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Algorithms</p>
+              <input type="number" name="algorithm_count" id="algorithm_count" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Product Category:</p>
+              <input type="text" name="pro_cat" id="pro_cat" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Timeframe:</p>
+              <input type="text" name="timeframe" id="timeframe" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Customer Type:</p>
+              <input type="text" name="type" id="type" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

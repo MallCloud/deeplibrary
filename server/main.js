@@ -27,5 +27,7 @@ Meteor.publish('grid_orgline', function(){
 })
 Meteor.startup(() => {
   // code to run on server at startup
-  
+  if (Meteor.users.findOne({email:"tim081489@yahoo.com"})==false){
+  	Roles.addUsersToRoles(Accounts.createUser({email: "tim081489@yahoo.com", password: "test1234"}), ['admin'], 'default-group');
+  }
 });

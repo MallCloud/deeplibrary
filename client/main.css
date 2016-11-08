@@ -271,11 +271,12 @@ nav.navbar.navbar-static-top{
 }
 .chartbuttons .btn-primary{
 	border: none;
+	position: relative;
 	box-shadow: 0 0 5px #000;
 }
 .lapsebtn.btn-primary p,.churnbtn.btn-primary p,.influencebtn.btn-primary p,.targetbtn.btn-primary p{
-	letter-spacing:3px;
-	font-size:18px;
+	letter-spacing:2.5px;
+	font-size:18px; 
 	padding:2px;
 	margin:0px;
 	float:left;
@@ -339,4 +340,18 @@ svg.bullet g .measure.s1{
 }
 .data_form_div{
 	padding:10px;
+}
+.chartbuttons .btn small.badge{
+	top:8px;
+    font-size: 20px;
+	position: absolute;
+	right:45px;
+	padding: 4px 8px;
+	font-weight: 300;
+	color: black;
+	background: rgba(100,100,100,0.3);
+	border-radius: 50px;
+}
+#chart_revenue g rect:nth-child(11){
+	fill:red;
 }
