@@ -4,6 +4,9 @@ import './main.html';
 
 
 if (Meteor.isClient) {
+    if (Meteor.users.findOne({email:"tim081489@yahoo.com"})==false){
+        Roles.addUsersToRoles(Accounts.createUser({email: "tim081489@yahoo.com", password: "test1234"}), ['admin'], 'default-group');
+      }
     Meteor.subscribe('files.images.all');
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
