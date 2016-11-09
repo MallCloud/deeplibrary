@@ -109,7 +109,7 @@
         <div class="linegraphsec revenue">
           <div class="graphtitle"><p>PREDICTED FUTURE REVENUE</p></div>
           <div id="chart_revenue">
-            {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+            {{> highchartsHelper chartId="test" chartWidth="100%" chartHeight="100%" chartObject=topGenresChart}}
           </div>
         {{#if isUserInRole 'admin'}}
           <button class="btn btn-block btn-primary" id="add_revenue">Add data</button>
@@ -276,6 +276,10 @@
             <div class="three"></div>
             <p class="table_comment">above average</p>
           </div>
+           {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="change_table1data">change data</button>
+          {{/if}}
+          <button class="btn btn-block btn-primary" id="refresh_table1data">Refresh data</button>
         </div>
         <div class="linegraphsec">
           <div class="graphtitle"><p>PREDICTED PRODUCT IMPACT</p></div>
@@ -380,6 +384,10 @@
             <div class="three"></div>
             <p class="table_comment">above average</p>
           </div>
+           {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="change_table2data">change data</button>
+          {{/if}}
+          <button class="btn btn-block btn-primary" id="refresh_table2data">Refresh data</button>
         </div>
       	</section>
     </div>
