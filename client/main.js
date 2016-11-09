@@ -1005,7 +1005,7 @@ Template.main.topGenresChart = function() {
                 dataLabels: {
                     enabled: true,
                     formatter: function () {
-                        return this.y/1000000 + '$';
+                        return '$' + this.y/1000000;
                     }
                 }
             }

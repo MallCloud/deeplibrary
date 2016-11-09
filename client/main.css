@@ -400,6 +400,7 @@ svg.bullet g .measure.s1{
 .table_select{
     width: 100%;
     padding-left: 20%;
+    height: 30px;
 }
 .table_select div{
 	float: left;
