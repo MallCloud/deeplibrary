@@ -997,7 +997,7 @@ Template.main.topGenresChart = function() {
         },
 
         tooltip: {
-            valueSuffix: '$'
+            valuePrefix: '$'
         },
 
         plotOptions: {
