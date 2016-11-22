@@ -1,9 +1,7 @@
 <template name="main">
   {{#AdminLTE skin="blue"}}
 
-  {{#if isUserInRole 'admin'}}
   {{> yield "modal_churndata"}}
-  {{/if}}
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
@@ -74,11 +72,14 @@
                 <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
               </span>
             </a>
-            <ul class="treeview-menu">
-              <li><a href="/churn">Churn</a></li>
-              <li><a href="/lapse">Lapse</a></li>
-              <li><a href="/influence">Influence</a></li>
-              <li><a href="/target">Target</a></li>
+            <ul class="treeview-menu gridssub">
+              <li><a href="/churn">Churn<span>11/15 - 12/17</span><div class="circle"></div></a></li>
+              <li><a href="/churn">Churn<span>11/15 - 12/17</span><div class="circle"></div></a></li>
+              <li><a href="/churn">Churn<span>11/15 - 12/17</span><div class="circle"></div></a></li>
+              <li><a href="/lapse">Lapse<span>09/16 - 4/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/target">Target<span>09/16 - 12/16</span><div class="circle"></div></a></li>
             </ul>
           </li>
           <li>
@@ -94,9 +95,9 @@
 
     <div class="content-wrapper">
     	<section class="content-header">
-      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / </p>
+      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / <span>Performance Dashboard</span> </p>
       		<h1><b>DAILY PREDICTION : 10-23-2016</b></h1>
-      		<p class="comment">Check out your active GRIDS.</p>
+      		<p class="comment">Active Grids - by Type</p>
           <div class="chartbuttons">
             <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <small class="badge">3</small><i class="fa fa-undo" aria-hidden="true"></i></button>
         		<button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <small class="badge">3</small><i class="fa fa-line-chart" aria-hidden="true"></i></button>
@@ -107,7 +108,7 @@
 	    <section class="content linegraphsecs">
 
         <div class="linegraphsec revenue">
-          <div class="graphtitle"><p>PREDICTED FUTURE REVENUE</p></div>
+          <div class="graphtitle"><p>PREDICTED FUTURE REVENUE<br/>Incremental impact of KnowledgeGRIDS by Month</p></div>
           <div id="chart_revenue">
             {{> highchartsHelper chartId="test" chartWidth="100%" chartHeight="100%" chartObject=topGenresChart}}
           </div>
@@ -118,7 +119,7 @@
           <button class="btn btn-block btn-primary" id="show_revenue">Show data</button>
         </div>
         <div class="linegraphsec business">
-          <div class="graphtitle"><p>PREDICTED BUSINESS IMPACT</p></div>
+          <div class="graphtitle"><p>REVENUE IMPACT BY BUSINESS OBJECTIVE<br/>Incremental impact by Category or Strategy</p></div>
           <div class="business_content">
             <div class="i_p_div">
               <div class="i_p_div_left">
@@ -126,7 +127,7 @@
               </div>
               <div class="i_p_div_right">
                 <p>Reducing risk</p>
-                <p>Total:$2 246 225</p>
+                <p>Total:$2,246,225</p>
               </div>
             </div>
             <div class="i_p_div">
@@ -135,7 +136,7 @@
               </div>
               <div class="i_p_div_right"> 
                 <p>Reducing waste</p>
-                <p>Total:$2 246 225</p>
+                <p>Total:$2,346,225</p>
               </div>
             </div>
             <div class="i_p_div">
@@ -144,108 +145,53 @@
               </div>
               <div class="i_p_div_right">
                 <p>Increasing revenue</p>
-                <p>Total:$1 353 345</p>
+                <p>Total:$1,353,345</p>
               </div>
             </div>
           </div>
 
         </div>
 		    <div class="linegraphsec">
-  				<div class="graphtitle"><p>FUTURE SHOPPER INTENSION AND ACTIVITIES</p></div>
+  				<div class="graphtitle"><p>PREDICTED SHOPPER BEHAVIOR<br/>Based on PLANNED GRID ACTIVATION</p></div>
   				<div id="chart_intandact">
-  				    <svg style="width:100%;"></svg>
+  				    
+            {{> highchartsHelper chartId="test1" chartWidth="100%" chartHeight="100%" chartObject=leftpieChart}}
+         
   				</div>
         {{#if isUserInRole 'admin'}}
   			  	<button class="btn btn-block btn-primary" id="add_intandact">Add data</button>
   				<button class="btn btn-block btn-primary" id="remove_intandact">Remove data</button>
           {{/if}}
-  				<button class="btn btn-block btn-primary" id="show_intandact">Show data</button>
 		    </div>
 		    <div class="linegraphsec">
-  				<div class="graphtitle"><p>FUTURE CHANNEL ENGAGEMENT</p></div>
+  				<div class="graphtitle"><p>PREDICTED CHANNEL RESPONSE<br/>Based on PLANNED GRID ACTIVATION</p></div>
   				<div id="chart_engagement">
-  					<svg style="width:100%;"></svg>
+  					{{> highchartsHelper chartId="test2" chartWidth="100%" chartHeight="100%" chartObject=rightpieChart}}
   				</div>
         {{#if isUserInRole 'admin'}}
   				<button class="btn btn-block btn-primary" id="add_engagement">Add data</button>
   				<button class="btn btn-block btn-primary" id="remove_engagement">Remove data</button>
           {{/if}}
-  				<button class="btn btn-block btn-primary" id="show_engagement">Show data</button>
 		    </div>
 
-        <div class="linegraphsec">
-          <div class="graphtitle"><p>PREDICTED PRODUCT CATEGORY IMPACT</p></div>
+        <div class="linegraphsec table_col_4">
+          <div class="graphtitle"><p>PREDICTED IMPACT TO SALES WITHIN PRODUCT CATEGORY<br/>Based on PLANNED GRID ACTIVATION</p></div>
           <table>
             <tr>
               <th></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
+              <th><div>Helmet</div></th>
+              <th><div>Jacket</div></th>
+              <th><div>Gloves</div></th>
+              <th><div>Tires</div></th>
             </tr>
+            
             <tr>
-              <td>January</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>Febrary</td>
+              <td>November</td>
               <td><div class="one"></div></td>
               <td><div class="three"></div></td>
               <td><div class="one"></div></td>
               <td><div class="two"></div></td>
-            </tr>
-            <tr>
-              <td>March</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-            </tr>            
-            <tr>
-              <td>April</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>May</td>
-              <td><div class="one"></div></td>
-              <td><div class="three"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-            </tr>
-            <tr>
-              <td>June</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-                        <tr>
-              <td>July</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>August</td>
-              <td><div class="one"></div></td>
-              <td><div class="three"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-            </tr>
-            <tr>
-              <td>September</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-            </tr>            
+            </tr>          
             <tr>
               <td>October</td>
               <td><div class="one"></div></td>
@@ -254,17 +200,66 @@
               <td><div class="one"></div></td>
             </tr>
             <tr>
-              <td>November</td>
+              <td>September</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>August</td>
               <td><div class="one"></div></td>
               <td><div class="three"></div></td>
               <td><div class="one"></div></td>
               <td><div class="two"></div></td>
             </tr>
             <tr>
-              <td>December</td>
+              <td>July</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>   
+              <td>June</td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>      
+            <tr>
+              <td>April</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>March</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>Febrary</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr> 
+            <tr>
+              <td>January</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
               <td><div class="one"></div></td>
             </tr>
           </table>
@@ -283,71 +278,33 @@
           <button class="btn btn-block btn-primary" id="refresh_table1data">Refresh data</button>
           </div>
         </div>
-        <div class="linegraphsec">
-          <div class="graphtitle"><p>PREDICTED PRODUCT IMPACT</p></div>
+        <div class="linegraphsec table_col_5">
+          <div class="graphtitle"><p>PREDICTED IMPACT TO SALES OF TARGETED PRODUCTS<br/>Based on PLANNED GRID ACTIVATION</p></div>
           <table>
             <tr>
               <th></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
-              <th><div>Category</div></th>
+              <th><div>Bilt Helmet t210</div></th>
+              <th><div>Sedeci Helmet RF</div></th>
+              <th><div>O'Neal Rider Boots</div></th>
+              <th><div>Leatt GPX Jacket</div></th>
+              <th><div>Racecraft Goggles</div></th>
             </tr>
+            
             <tr>
-              <td>January</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>Febrary</td>
+              <td>November</td>
               <td><div class="one"></div></td>
               <td><div class="three"></div></td>
               <td><div class="one"></div></td>
               <td><div class="two"></div></td>
-            </tr>
+              <td><div class="one"></div></td>
+            </tr>          
             <tr>
-              <td>March</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-            </tr>            
-            <tr>
-              <td>April</td>
+              <td>October</td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
               <td><div class="two"></div></td>
               <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>May</td>
               <td><div class="one"></div></td>
-              <td><div class="three"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-            </tr>
-            <tr>
-              <td>June</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-                        <tr>
-              <td>July</td>
-              <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>August</td>
-              <td><div class="one"></div></td>
-              <td><div class="three"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
             </tr>
             <tr>
               <td>September</td>
@@ -355,26 +312,70 @@
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
-            </tr>            
+              <td><div class="three"></div></td>
+            </tr>  
             <tr>
-              <td>October</td>
+              <td>August</td>
               <td><div class="one"></div></td>
-              <td><div class="one"></div></td>
-              <td><div class="two"></div></td>
-              <td><div class="one"></div></td>
-            </tr>
-            <tr>
-              <td>November</td>
-              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
               <td><div class="three"></div></td>
               <td><div class="one"></div></td>
               <td><div class="two"></div></td>
             </tr>
             <tr>
-              <td>December</td>
+              <td>July</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>   
+              <td>June</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
               <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>      
+            <tr>
+              <td>April</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>March</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>Febrary</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr> 
+            <tr>
+              <td>January</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="two"></div></td>
               <td><div class="one"></div></td>
             </tr>
           </table>

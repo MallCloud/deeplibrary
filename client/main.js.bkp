@@ -116,115 +116,28 @@ if (Meteor.isClient) {
       return data;
     }
     
-    function show_futrev1(){
-        var margin = {top: 30, right: 20, bottom: 30, left: 50},
-            width = $('#chart_futrev1').width()*0.9 - margin.left - margin.right,
-            height = $('#chart_futrev1').height() - margin.top - margin.bottom;
-            $('#chart_futrev1 svg').remove()
-        // Parse the date / time
-        var parseDate = d3.time.format("%d-%b-%y").parse;
 
-        // Set the ranges
-        var x = d3.time.scale().range([0, width]);
-        var y = d3.scale.linear().range([height, 0]);
+    function show_intandact(){
+        d3.select("#chart_intandact svg").selectAll("*").remove();
+        nv.addGraph(function() {
+                var chart = nv.models.pieChart()
+                    .x(function(d) { return d.label })
+                    .y(function(d) { return d.value }) //Configure the minimum slice size for labels to show up
+                    
+                    .showLabels(true).donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+                    .donutRatio(0.35) //Configure the minimum slice size for labels to show up
+                    .labelType("percent") ;
 
-        // Define the axes
-        var xAxis = d3.svg.axis().scale(x)
-            .orient("bottom").ticks(5);
+                d3.select("#chart_intandact svg")
+                    .datum(intandactData())
+                    .transition().duration(350)
+                    .call(chart);
 
-        var yAxis = d3.svg.axis().scale(y)
-            .orient("left").ticks(5);
-
-        // Define the line
-        var valueline = d3.svg.line()
-            .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.close); });
-            
-        var valueline1 = d3.svg.line()
-            .x(function(d) { return x(d.date1); })
-            .y(function(d) { return y(d.close1); });
-        // Adds the svg canvas
-        $("#chart_futrev1").remove("svg");
-        var svg = d3.select("#chart_futrev1")
-            .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-                .attr("transform", 
-                      "translate(" + margin.left + "," + margin.top + ")");
-
-        // Get the data
-        d3.csv("./data1.csv", function(error, data) {
-            data.forEach(function(d) {
-                d.date = parseDate(d.date);
-                console.log(d.date);
-                d.close = +d.close;
+                return chart;
             });
 
-            // Scale the range of the data
-            x.domain(d3.extent(data, function(d) { return d.date; }));
-            y.domain([0, d3.max(data, function(d) { return d.close; })]);
-
-            // Add the valueline path.
-            svg.append("path")
-                .attr("class", "line")
-                .attr("d", valueline(data));
-            // Add the scatterplot
-            svg.selectAll("dot")
-                .data(data)
-              .enter().append("circle")
-              .filter(function(d) { return Date.parse(d.date) < Date.parse(new Date())})
-                .style("fill", "transparent")
-                .style("stroke", "#4682b4")
-                .style("stroke-width","2")
-                .attr("r", 6)
-                .attr("cx", function(d) { return x(d.date); })
-                .attr("cy", function(d) { return y(d.close); });
-
-            // Add the X Axis
-            svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
-
-            // Add the Y Axis
-            svg.append("g")
-                .attr("class", "y axis")
-                .call(yAxis);
-
-        });
-        d3.csv("./data.csv", function(error, data1) {
-            data1.forEach(function(d) {
-                d.date1 = parseDate(d.date1);
-                console.log(d.date1);
-                d.close1 = +d.close1;
-            });
-
-            // Scale the range of the data
            
 
-            // Add the valueline path.
-            svg.append("path")
-                .attr("class", "line2")
-                .attr("d", valueline1(data1));
-            // Add the scatterplot
-            svg.selectAll("dot")
-                .data(data1)
-              .enter().append("circle")
-              .filter(function(d) { return Date.parse(d.date1) < Date.parse(new Date())})
-                .style("fill", "transparent")
-                .style("stroke", "#4682b4")
-                .style("stroke-width","2")
-                .attr("r", 6)
-                .attr("cx", function(d) { return x(d.date1); })
-                .attr("cy", function(d) { return y(d.close1); });
-
-          
-
-        });
-    }
-    function show_intandact(){
-        
             //Intension and activities data. Note how there is only a single array of key-value pairs.
             function intandactData() {
                 return  [
@@ -258,7 +171,48 @@ if (Meteor.isClient) {
     function show_helmet(){
 
     }
+    function show_engagement(){
+        d3.select("#chart_engagement svg").selectAll("*").remove();
+        nv.addGraph(function() {
+                var chart = nv.models.pieChart()
+                    .x(function(d) { return d.label })
+                    .y(function(d) { return d.value })
+                    .showLabels(true)     //Display pie labels
+                    .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
+                    .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+                         //Configure how big you want the donut hole size to be.
+                    ;
 
+                d3.select("#chart_engagement svg")
+                    .datum(engagementData())
+                    .transition().duration(350)
+                    .call(chart);
+
+                return chart;
+            });
+
+            //Engagement data. Note how there is only a single array of key-value pairs.
+            function engagementData() {
+                return  [
+                    { 
+                        "label": "SEO",
+                        "value" :11.89
+                    } , 
+                    { 
+                        "label": "Web",
+                        "value" : 29.39
+                    } , 
+                    { 
+                        "label": "Store",
+                        "value" : 5.99
+                    } , 
+                    { 
+                        "label": "Email",
+                        "value" : 3.9
+                    } 
+                ];
+            }
+    }
     function show_preandrev(){
         d3.select("#chart_preandrev svg").selectAll("*").remove();
         var chart = nv.models.linePlusBarChart()
@@ -455,21 +409,6 @@ if (Meteor.isClient) {
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
-        },
-        'click #add_futrev1': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            //predict.insert({x:qua1, y:qua2});
-            //revenue.insert({x:qua3, y:qua4});
-            show_futrev1();
-        },
-        'click #remove_futrev1': function() {
-        },
-        'click #show_futrev1': function() {
-            show_futrev1();
         }
     });
     Template.churn.events({
@@ -492,21 +431,6 @@ if (Meteor.isClient) {
         },
         'click #show_preandrev': function() {
             show_preandrev();
-        },
-        'click #add_futrev1': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            //predict.insert({x:qua1, y:qua2});
-            //revenue.insert({x:qua3, y:qua4});
-            show_futrev1();
-        },
-        'click #remove_futrev1': function() {
-        },
-        'click #show_futrev1': function() {
-            show_futrev1();
         },
 
 
@@ -588,21 +512,6 @@ if (Meteor.isClient) {
         },
         'click #show_algo_cur_data': function() {
             show_algo_cur_data();
-        },
-        'click #add_futrev1': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            //predict.insert({x:qua1, y:qua2});
-            //revenue.insert({x:qua3, y:qua4});
-            show_futrev1();
-        },
-        'click #remove_futrev1': function() {
-        },
-        'click #show_futrev1': function() {
-            show_futrev1();
         }
     });
 
@@ -677,21 +586,6 @@ if (Meteor.isClient) {
         }
     });
     Template.influence.events({
-        'click #add_futrev1': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            //predict.insert({x:qua1, y:qua2});
-            //revenue.insert({x:qua3, y:qua4});
-            show_futrev1();
-        },
-        'click #remove_futrev1': function() {
-        },
-        'click #show_futrev1': function() {
-            show_futrev1();
-        },
 
         'click .influencebtn' : function() {
             $("#churn_add_form").modal('show');
@@ -761,11 +655,32 @@ if (Meteor.isClient) {
         },
         'click #remove_engagement': function() {
         },
+        'click #show_engagement': function() {
+            //Donut chart 
+            show_engagement();
+        },
         /* Intension and activities button events*/
         'click #add_intandact': function() {
         },
         'click #remove_intandact': function() {
+        },
+        'click #show_intandact': function() {
+            //Regular pie chart 
+            show_intandact();
         }
+    });
+
+    Template.main.onRendered(function(){
+         _.defer(function () {
+
+            Deps.autorun(function () {
+                show_engagement();
+                show_intandact();
+            });
+            show_engagement();
+            show_intandact();
+        });
+         
     });
     Template.lapse.onRendered(function(){
          _.defer(function () {
@@ -1117,120 +1032,6 @@ Template.main.topGenresChart = function() {
                 [5200000, 10400000]/*,
                 [13.5, 19.8]*/
             ]
-        }]
-    };
-};
-Template.main.leftpieChart = function() {
-    return {
-         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: ''
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
-        },
-        series: [{
-            size: 200,
-            name: 'Brands',
-            colorByPoint: true,
-            innerSize: 100,
-            data: [
-                    { 
-                        "name": "Cruisin",
-                        "y" : 5.99
-                    } , 
-                    { 
-                        "name": "Snowmobile",
-                        "y" : 33.9
-                    } , 
-                    { 
-                        "name": "Harley",
-                        "y" : 5.55
-                    } , 
-                    { 
-                        "name": "Racing",
-                        "y" : 15.48
-                    } , 
-                    { 
-                        "name": "Street",
-                        "y" : 11.89
-                    } , 
-                    { 
-                        "name": "Tourism",
-                        "y" : 9.29
-                    } 
-                ]
-        }]
-    };
-};
-
-Template.main.rightpieChart = function() {
-    return {
-         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: ''
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
-        },
-        series: [{
-            size: 200,
-            name: 'Brands',
-            colorByPoint: true,
-            data: [
-                    { 
-                        "name": "SEO",
-                        "y" :11.89
-                    } , 
-                    { 
-                        "name": "Web",
-                        "y" : 29.39
-                    } , 
-                    { 
-                        "name": "Store",
-                        "y" : 5.99
-                    } , 
-                    { 
-                        "name": "Email",
-                        "y" : 3.9
-                    } 
-                ]
         }]
     };
 };
