@@ -282,7 +282,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data=[{ "key": 'GRID A', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'GRID B' , "color":'#ed6283',"values":datarevenue()} ];
+                var data=[{ "key": 'Algorithm A', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'Algorithm B' , "color":'#ed6283',"values":datarevenue()} ];
                 chart.xAxis.tickFormat(function(d) {
                     var dx = data[0].values[d] && data[0].values[d][0] || 0;
                     return d3.time.format('%x')(new Date(dx))
@@ -295,7 +295,7 @@ if (Meteor.isClient) {
 
                 chart.bars.forceY([0]);
                 d3.select('#chart_preandrev svg').datum(data).transition().duration(0).call(chart);
-                nv.utils.windowResize(function() { chart.update; });
+                
                 return chart;
             });
     }
@@ -330,7 +330,7 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var data= [{ "key": 'GRID A', "color":"#91cec6", "values": algo1data() },{  "key": 'GRID B', "color":"#ec547a" , "values":algo2data()},{ "key": 'GRID C', "color":"#f1a17c", "values": algo3data() } ];
+                var data= [{ "key": 'Algorithm A', "color":"#91cec6", "values": algo1data() },{  "key": 'Algorithm B', "color":"#ec547a" , "values":algo2data()},{ "key": 'Algorithm C', "color":"#f1a17c", "values": algo3data() } ];
                 chart.xAxis
                     .tickValues([1078030800000,1122782400000,1167541200000])
                     .tickFormat(function(d) {
@@ -388,17 +388,17 @@ if (Meteor.isClient) {
                 return [
                     {
                         values: sin,      //values - represents the array of {x,y} data points
-                        key: 'GRID A', //key  - the name of the series.
+                        key: 'Algorithm A', //key  - the name of the series.
                         color: '#72c0b3'  //color - optional: choose your own line color.
                     },
                     {
                         values: cos,
-                        key: 'GRID B',
+                        key: 'Algorithm B',
                         color: '#eb557b'
                     },
                     {
                         values: sin2,
-                        key: 'GRID C',
+                        key: 'Algorithm C',
                         color: '#a9cadb',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
@@ -642,7 +642,7 @@ if (Meteor.isClient) {
             $("#predata_add_form").modal('show');
         },
         'click #show_fut_rev': function() {
-            console.log("sdf");
+            show_fut_rev();
         },
 
         /* algorithm contribution 3 lines button events*/

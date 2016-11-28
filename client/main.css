@@ -73,6 +73,7 @@ html, body {
     font-size: 15px;
     padding: 5px;
 }
+/*
 .linegraphsec .chartbuttons .churnbtn.btn-primary{
 	background: linear-gradient(90deg, #8dcdc2 calc(100% - 55px), #70c0b3 55px);
 }
@@ -85,6 +86,7 @@ html, body {
 .linegraphsec .chartbuttons .targetbtn.btn-primary{
 	background: linear-gradient(90deg, #ef7795 calc(100% - 55px), #eb557b 55px);
 }
+*/
 .chartbuttons button{
 	margin: 5px calc(12.5vw - 136px);
 	display: inline-block;
@@ -260,19 +262,23 @@ nav.navbar.navbar-static-top{
 	background-color: #aa82be;
 	width:200px;
 	letter-spacing: 1px;
+	position: relative;
 }
 .churnbtn.btn-primary{
 	background-color: #70c0b3;
 	width:200px;
+	position: relative;
 	letter-spacing: 1px;
 }
 .influencebtn.btn-primary{
 	background-color: #f1a07b;
 	width:200px;
 	letter-spacing: 1px;
+	position: relative;
 }
 .targetbtn.btn-primary{
 	background-color: #eb557b;
+	position: relative;
 	width:200px;
 	letter-spacing: 1px;
 }
@@ -348,7 +354,7 @@ svg.bullet g .measure.s1{
 .data_form_div{
 	padding:10px;
 }
-.chartbuttons .btn small.badge{
+.btn small.badge{
 	top:8px;
     font-size: 20px;
 	position: absolute;
@@ -387,7 +393,10 @@ svg.bullet g .measure.s1{
 	margin: 4px 0px;
 	border-radius: 100px;
 }
-.gridssub .active div.circle{
+/*.gridssub .active div.circle{
+	background-color: #ff5179;
+}*/
+.gridssub li:nth-child(2n) div.circle{
 	background-color: #ff5179;
 }
 .gridssub div.circle{
