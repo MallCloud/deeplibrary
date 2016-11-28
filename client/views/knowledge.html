@@ -131,10 +131,10 @@
 
               <iframe  scrolling="no" align="bottom" frameborder="0" src="http://playground.tensorflow.org/#activation={{grid_org_data.activations}}&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate={{grid_org_data.learningRate}}&regularizationRate={{grid_org_data.regularRate}}&noise=0&networkShape=4,2&seed=0.38541&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem={{grid_org_data.problem}}&initZero=false&hideText=false #main-part"></iframe>
               
-              <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <i class="fa fa-undo" aria-hidden="true"></i></button>
+              <!--<button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <i class="fa fa-undo" aria-hidden="true"></i></button>
               <button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <i class="fa fa-line-chart" aria-hidden="true"></i></button>
               <button type="button" class="influencebtn btn btn-block btn-primary "><p>INFLUENCE</p> <i class="fa fa-credit-card" aria-hidden="true"></i></button>
-              <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p> <i class="fa fa-trophy" aria-hidden="true"></i></button>
+              <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p> <i class="fa fa-trophy" aria-hidden="true"></i></button>-->
             </div>
           </div>
         {{#if isUserInRole 'admin'}}
@@ -178,6 +178,7 @@
         </div>  
         <div class="linegraphsec">
         <div class="graphtitle"><p>PREDICTION ACCURACY VERSUS ACTUAL REVENUE</p></div>
+       
         <div id="chart_preandrev">
             <svg style="width:100%;"></svg>
         </div>

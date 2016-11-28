@@ -5,8 +5,26 @@ Meteor.publish('predictline', function(){
 	return predict.find();
 })
 
-Meteor.publish('revenueline', function(){
-	return revenue.find();
+Meteor.publish('revenue1line', function(){
+	return revenue1.find();
+})
+Meteor.publish('revenue2line', function(){
+	return revenue2.find();
+})
+Meteor.publish('revenue3line', function(){
+	return revenue3.find();
+})
+Meteor.publish('revenue4line', function(){
+	return revenue4.find();
+})
+Meteor.publish('revenue5line', function(){
+	return revenue5.find();
+})
+Meteor.publish('revenue6line', function(){
+	return revenue6.find();
+})
+Meteor.publish('revenue7line', function(){
+	return revenue7.find();
 })
 
 Meteor.publish('algoline', function(){

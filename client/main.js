@@ -13,7 +13,13 @@ if (Meteor.isClient) {
     }
     /* predict and actual revenue collection links*/
     Meteor.subscribe('predictline');
-    Meteor.subscribe('revenueline');
+    Meteor.subscribe('revenue1line');
+    Meteor.subscribe('revenue2line');
+    Meteor.subscribe('revenue3line');
+    Meteor.subscribe('revenue4line');
+    Meteor.subscribe('revenue5line');
+    Meteor.subscribe('revenue6line');
+    Meteor.subscribe('revenue7line');
     /* Algorithm contribution 3 lines*/
     Meteor.subscribe('algoline');
     Meteor.subscribe('cursettingline');
@@ -50,7 +56,34 @@ if (Meteor.isClient) {
           return chart;
         });
     }
+    function add_preandrev(){
 
+            var qua1 = new Date().getTime();
+            var qua2 = getRandomInt(0, 113434);
+            var qua3 = getRandomInt(10343432383, 11343432383);
+            var qua4 = getRandomInt(50, 600);
+            var qua5 = getRandomInt(10343432383, 11343432383);
+            var qua6 = getRandomInt(50, 600);
+            var qua7 = getRandomInt(10343432383, 11343432383);
+            var qua8 = getRandomInt(50, 600);
+            var qua9 = getRandomInt(10343432383, 11343432383);
+            var qua10 = getRandomInt(50, 600);
+            var qua11 = getRandomInt(10343432383, 11343432383);
+            var qua12 = getRandomInt(50, 600);
+            var qua13 = getRandomInt(10343432383, 11343432383);
+            var qua14 = getRandomInt(50, 600);
+            var qua15 = getRandomInt(10343432383, 11343432383);
+            var qua16 = getRandomInt(50, 600);
+           
+            predict.insert({x:qua1, y:qua2});
+            revenue1.insert({x:qua1, y:qua4});
+            revenue2.insert({x:qua1, y:qua6});
+            revenue3.insert({x:qua1, y:qua8});
+            revenue4.insert({x:qua1, y:qua10});
+            revenue5.insert({x:qua1, y:qua12});
+            revenue6.insert({x:qua1, y:qua14});
+            revenue7.insert({x:qua1, y:qua16});
+    }
     /**************************************
      * Simple test data generator
      */
@@ -264,7 +297,8 @@ if (Meteor.isClient) {
         var chart = nv.models.linePlusBarChart()
                 .margin({top: 30, right: 60, bottom: 50, left: 70})
                 .x(function(d,i){return i})
-                .y(function(d,i){return d[1]})  
+                .y(function(d,i){return d[1]}) 
+                .showLegend(false); 
                 ;
     
             nv.addGraph(function() {
@@ -275,14 +309,56 @@ if (Meteor.isClient) {
                     })
                     return results;
                 }
-                var datarevenue=function(){
+                var datarevenue1=function(){
                     var results=[];
-                    revenue.find().map(function(revenue){
+                    revenue1.find().map(function(revenue){
                         results.push([revenue.x , revenue.y]);
                     })
                     return results;
                 }
-                var data=[{ "key": 'Algorithm A', "bar" : true, "color":'#70c0b3', "values": datapredict() },{  "key": 'Algorithm B' , "color":'#ed6283',"values":datarevenue()} ];
+                var datarevenue2=function(){
+                    var results=[];
+                    revenue2.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var datarevenue3=function(){
+                    var results=[];
+                    revenue3.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var datarevenue4=function(){
+                    var results=[];
+                    revenue4.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var datarevenue5=function(){
+                    var results=[];
+                    revenue5.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var datarevenue6=function(){
+                    var results=[];
+                    revenue6.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var datarevenue7=function(){
+                    var results=[];
+                    revenue7.find().map(function(revenue){
+                        results.push([revenue.x , revenue.y]);
+                    })
+                    return results;
+                }
+                var data=[{ "key": 'Algorithm A', "bar" : true, "color":'#70c0b3', "values": datapredict() },{"key": 'Algorithm B' , "color":'#ed6283',"values":datarevenue1()},{  "key": 'Algorithm C' , "color":'blue',"values":datarevenue2()},{  "key": 'Algorithm D' , "color":'blue',"values":datarevenue3()},{  "key": 'Algorithm E' , "color":'blue',"values":datarevenue4()},{  "key": 'Algorithm F' , "color":'blue',"values":datarevenue5()},{  "key": 'Algorithm G' , "color":'blue',"values":datarevenue6()},{  "key": 'Algorithm H' , "color":'blue',"values":datarevenue7()} ];
                 chart.xAxis.tickFormat(function(d) {
                     var dx = data[0].values[d] && data[0].values[d][0] || 0;
                     return d3.time.format('%x')(new Date(dx))
@@ -307,7 +383,7 @@ if (Meteor.isClient) {
                   .color(d3.scale.category10().range())
                   .useInteractiveGuideline(true)
                   ;
-    
+            
             nv.addGraph(function() {
                 var algo1data=function(){
                     var results=[];
@@ -336,10 +412,10 @@ if (Meteor.isClient) {
                     .tickFormat(function(d) {
                         return d3.time.format('%x')(new Date(d))
                     });
-
                 chart.yAxis
                     .tickFormat(d3.format(',.1%'));
                     d3.select('#chart_algorithm svg').datum(data).transition().duration(0).call(chart);
+                    
                     nv.utils.windowResize(function() { chart.update; });
                     return chart;
             });
@@ -375,13 +451,17 @@ if (Meteor.isClient) {
                 return chart;
             });
             function sinAndCos() {
-                var sin = [],sin2 = [],cos = [];
+                var sin = [],sin2 = [],cos = [],sin3 = [],sin4 = [],cos1 = [],cos2 = [];
 
                 //Data is represented as an array of {x,y} pairs.
                 for (var i = 0; i < 100; i++) {
                     sin.push({x: i, y: Math.sin(i/10)});
                     sin2.push({x: i, y: Math.sin(i/10) *0.25 + 0.5});
                     cos.push({x: i, y: .5 * Math.cos(i/10)});
+                    sin3.push({x: i, y: Math.sin(i/10)*0.2+0.7});
+                    sin4.push({x: i, y: Math.sin(i/10) *0.5 + 0.8});
+                    cos1.push({x: i, y: .5 * Math.cos(i/10)*0.1});
+                    cos2.push({x: i, y: Math.cos(i/10)*0.3 + 1});
                 }
 
                 //Line chart data should be sent as an array of series objects.
@@ -399,6 +479,26 @@ if (Meteor.isClient) {
                     {
                         values: sin2,
                         key: 'Algorithm C',
+                        color: '#a9cadb'
+                    },
+                    {
+                        values: sin3,      //values - represents the array of {x,y} data points
+                        key: 'Algorithm D', //key  - the name of the series.
+                        color: '#72c0b3'  //color - optional: choose your own line color.
+                    },
+                    {
+                        values: cos1,
+                        key: 'Algorithm E',
+                        color: '#eb557b'
+                    },
+                    {
+                        values: sin4,
+                        key: 'Algorithm F',
+                        color: '#a9cadb'
+                    },
+                    {
+                        values: sin3,
+                        key: 'Algorithm G',
                         color: '#a9cadb',
                         area: true      //area - set to true if you want this line to turn into a filled area chart.
                     }
@@ -412,14 +512,8 @@ if (Meteor.isClient) {
         },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
-            //show_preandrev();
+            add_preandrev();
+            show_preandrev();
             $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
@@ -478,14 +572,8 @@ if (Meteor.isClient) {
         },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
-            //show_preandrev();
+            add_preandrev();
+            show_preandrev();
             $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
@@ -545,14 +633,8 @@ if (Meteor.isClient) {
         },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
-            //show_preandrev();
+            add_preandrev();
+            show_preandrev();
             $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
@@ -622,14 +704,8 @@ if (Meteor.isClient) {
         },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
-            //show_preandrev();
+            add_preandrev();
+            show_preandrev();
             $("#preandrev_add_form").modal('show');
         },
         'click #remove_preandrev': function() {
@@ -698,13 +774,7 @@ if (Meteor.isClient) {
         },
         /* predict and actual revenue button events*/
         'click #add_preandrev': function() {
-            var qua1 = new Date().getTime();
-            var qua2 = getRandomInt(0, 113434);
-            var qua3 = getRandomInt(10343432383, 11343432383);
-            var qua4 = getRandomInt(50, 600);
-           
-            predict.insert({x:qua1, y:qua2});
-            revenue.insert({x:qua3, y:qua4});
+            add_preandrev();
             show_preandrev();
             $("#preandrev_add_form").modal('show');
         },
