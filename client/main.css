@@ -4,3 +4,634 @@
 html, body {
 	height: 100%;
 }
+.skin-blue .main-header .navbar.navbar-static-top{
+	background-color: #fff;
+}
+.skin-blue .main-header .navbar.navbar-static-top .nav>li>a{
+	color:#4988a7;
+}
+.skin-blue .main-header .navbar.navbar-static-top .nav>li.logout>a{
+	color:#e5e5e5;
+}
+.skin-blue .main-header .navbar a.sidebar-toggle{
+	width:45px;
+	color:black;
+	position: absolute;
+	left:-45px;
+	text-decoration: none;
+}
+#chart_grid_org iframe{
+	width: 100%;
+}
+#chart_intandact svg, #chart_engagement svg{
+	width: 100%;
+}
+#chart_intandact svg>text, #chart_engagement svg>text{
+	display: none;
+}
+.linegraphsec.grid_org{
+	background-color: #f7f7f7;
+	float:none;
+}
+#chart_grid_org div{
+	position: relative;
+	width: 100%;
+	height: 550px;
+	overflow: hidden;
+}
+#chart_grid_org div iframe{
+	top: -140px;
+	height: 790px;
+	position: absolute;
+	left:0px;
+}
+.linegraphsec.gridbuttons,.linegraphsec.grid_org{
+	width: calc(100% - 20px);
+}
+.content.linegraphsecs .linegraphsec .chartbuttons button{
+	width: 200px;
+    margin: 20px calc(12.5vw - 140px);
+}
+#chart_helmet svg, #chart_jacket svg, #chart_upsell svg{
+	height:60px;
+}
+.skin-blue .content-header{
+	padding: 25px 25px 0 25px;
+}
+.skin-blue .content-wrapper{
+	min-height: calc(100vh - 50px);
+}
+.chartbuttons{
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+.content.linegraphsecs.knowledgesec{
+	padding-top: 0px;
+}
+.linegraphsec .chartbuttons .btn-primary p{
+    font-size: 15px;
+    padding: 5px;
+}
+/*
+.linegraphsec .chartbuttons .churnbtn.btn-primary{
+	background: linear-gradient(90deg, #8dcdc2 calc(100% - 55px), #70c0b3 55px);
+}
+.linegraphsec .chartbuttons .lapsebtn.btn-primary{
+	background: linear-gradient(90deg, #ba9bcb calc(100% - 55px), #a982be 55px);
+}
+.linegraphsec .chartbuttons .influencebtn.btn-primary{
+	background: linear-gradient(90deg, #f4b395 calc(100% - 55px), #f1a07b 55px);
+}
+.linegraphsec .chartbuttons .targetbtn.btn-primary{
+	background: linear-gradient(90deg, #ef7795 calc(100% - 55px), #eb557b 55px);
+}
+*/
+.chartbuttons button{
+	margin: 5px calc(12.5vw - 136px);
+	display: inline-block;
+}
+.chartbuttons button:first-child{
+	margin-left: 0px;
+	display: inline-block;
+}
+#chart_revenue svg>text:last-child{
+	display: none;
+}
+.linegraphsec.business{
+	width:320px;
+	min-width: 300px;
+	height:500px;
+}
+.business_content{
+	padding: 25px;
+}
+.i_p_div:first-child{
+	border-top: solid 1px #dddddd;
+}
+.i_p_div i.fa-exclamation-triangle{
+    color: #eb557b;
+}
+.i_p_div i.fa-trash{
+	color:#70c0b3;
+}
+#chart_revenue g rect{
+	fill:#70c0b3;
+}
+.i_p_div i.fa-line-chart{
+	color:#18455d;
+}
+.i_p_div{
+	border-bottom: solid 1px #dddddd;
+	border-top: none;
+	display: block;
+	height: 130px;
+	padding:20px 20px;
+}
+.i_p_div_left{
+	width: 55px;
+	float: left;
+}
+.i_p_div_left i{
+	font-size: 40px;
+    padding: 20px;
+    padding-left: 0px;
+}
+.i_p_div_right{    
+	float: left;
+	text-align: left;
+    padding: 15px 5px;
+}
+.linegraphsec.revenue{
+	width: calc(100% - 360px);
+	height:500px;
+}
+.skin-blue .sidebar-menu>li{
+	border-bottom: solid 1px #1a7499;
+}
+.skin-blue .sidebar li>a{
+	color: #6ccef3;
+}
+.skin-blue .sidebar-menu>li>a>.fa{
+	font-size: 16px;
+	font-weight: 300;
+}
+.skin-blue aside.main-sidebar{
+	background-color: #0f678b;
+}
+.skin-blue .main-header .navbar a.sidebar-toggle:hover{
+	background-color: #333333;
+}
+.skin-blue .sidebar-men>li.treeview:hover>a, .skin-blue .sidebar-menu>li.treeview.active>a{
+ 	background-color: #074d6e;
+ 	color:#dce6e7;
+}
+.skin-blue .sidebar-menu>li>ul.treeview-menu{
+	background-color: #074d6e;
+}
+.skin-blue .main-header a.logo{
+	background-color: white;
+	color:#343434;
+}
+.content-header h1{
+	font-weight: 500;
+	padding-bottom: 20px;
+}
+.content-header p.comment{
+	font-size: 16px;
+	letter-spacing: 2px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.knowledgesec.content.linegraphsecs .linegraphsec{
+	margin-bottom: 15px;
+}
+.content p.comment{
+	font-size: 16px;
+	letter-spacing: 2px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+.content-wrapper{
+	background: #f9f9f9;
+}
+.content.linegraphsecs button{
+	width: 120px;
+	margin:5px;
+}
+.content.linegraphsecs .linegraphsec{
+	text-align: center;
+}
+nav.navbar.navbar-static-top{
+	box-shadow: 10px 10px 10px #dddddd;
+}
+.skin-blue div.wrapper{
+	background-color: #f9f9f9;
+}
+.linegraphsec{
+	border-radius: 5px;
+	min-width:450px;
+	background-color: white;
+	float:left;
+	width:calc(50% - 20px);
+	margin: 10px;
+	box-shadow: 0 0 30px #888888;
+}
+.linegraphsec.actionp{
+    width: calc(100% - 30px);
+}
+.linegraphsec button{
+	display: inline-block;
+}
+.linegraphsec svg{ 
+    width: 90%;
+	height: 420px;
+}
+.linegraphsec #chart_helmet svg, .linegraphsec #chart_jacket svg, .linegraphsec #chart_upsell svg{
+	padding-left: 20%;
+}
+#chart_preandrev,#chart_algorithm,#chart_algo_cur{
+	padding:5px 0px;
+}
+.linegraphsec .graphtitle{
+	padding:10px 0px;
+	text-align: left;
+	font-size:12px;
+	background-color: #f9f9f9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	border-bottom:solid 1px #ededed;
+}
+.linegraphsec .graphtitle p{
+	padding:0px 25px;
+	margin:0px;
+}
+.linegraphsecs{
+	width: 100%;
+}
+.btn-google {
+    color: #fff;
+    background-color: red;
+    border-color: rgba(0,0,0,0.2);
+}
+.login-box .row{
+	margin:0px;
+}
+.lapsebtn.btn-primary{
+	background-color: #aa82be;
+	width:200px;
+	letter-spacing: 1px;
+	position: relative;
+}
+.churnbtn.btn-primary{
+	background-color: #70c0b3;
+	width:200px;
+	position: relative;
+	letter-spacing: 1px;
+}
+.influencebtn.btn-primary{
+	background-color: #f1a07b;
+	width:200px;
+	letter-spacing: 1px;
+	position: relative;
+}
+.targetbtn.btn-primary{
+	background-color: #eb557b;
+	position: relative;
+	width:200px;
+	letter-spacing: 1px;
+}
+.chartbuttons .btn-primary{
+	border: none;
+	position: relative;
+	box-shadow: 0 0 5px #000;
+}
+.lapsebtn.btn-primary p,.churnbtn.btn-primary p,.influencebtn.btn-primary p,.targetbtn.btn-primary p{
+	letter-spacing:2.5px;
+	font-size:18px; 
+	padding:2px;
+	margin:0px;
+	float:left;
+}
+.lapsebtn.btn-primary i,.churnbtn.btn-primary i,.influencebtn.btn-primary i,.targetbtn.btn-primary i{
+	float:right;
+	font-size:22px;
+	padding:4px;
+}
+.login-box .row .col-xs-8{
+	padding-left:0px;
+}
+.login-box .row .col-xs-4{
+	padding-right:0px;
+}
+.login-box .checkbox input[type="checkbox"]{
+	position: relative;
+	margin-left: 0px;
+}
+.treeview .pull-right-container{
+	float:right;
+}
+.login-box .checkbox label{
+	padding-left: 0px
+}
+input.error{
+    background-color:rgb(255, 231, 231);
+}
+
+.bullet { font: 10px sans-serif; }
+.bullet .marker { stroke: #000; stroke-width: 2px; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; display: none;}
+.bullet .range.s0 { fill: transparent; }
+.bullet .range.s1 { fill: transparent; }
+.bullet .range.s2 { fill: transparent; }
+.bullet .measure.s0 { fill: lightsteelblue; }
+.bullet .measure.s1 { fill: steelblue; }
+.bullet .title { font-size: 14px; font-weight: bold; }
+.bullet .subtitle { fill: #999; }
+svg.bullet g .s2.measure{
+    fill: steelblue;
+}
+svg.bullet g .measure.s1{
+    fill: red;
+}
+.expimg{
+	text-align: center;
+	padding:20px 0px;
+	border-bottom: solid 1px #dddddd;
+}
+#change_upsell,#change_helmet,#change_jacket{
+	width:200px;
+	margin:10px calc(50% - 100px);
+}
+#data_add_form p{
+	width: 120px;
+	float: left;
+}
+#data_add_form select{
+	width: calc(100% - 120px);
+}
+.data_form_div{
+	padding:10px;
+}
+.btn small.badge{
+	top:8px;
+    font-size: 20px;
+	position: absolute;
+	right:45px;
+	padding: 4px 8px;
+	font-weight: 300;
+	color: black;
+	background: rgba(100,100,100,0.3);
+	border-radius: 50px;
+}
+#chart_revenue g rect:nth-child(11){
+	fill:red;
+}
+.linegraphsec table{
+	width: 100%;
+	text-align: center;
+}
+.linegraphsec.table_col_4 table th,.linegraphsec.table_col_4 table td{
+	width: 20%;
+	text-align: center;
+	color:grey;
+}
+.linegraphsec.table_col_5 table th,.linegraphsec.table_col_5 table td{
+	width: 16%;
+	text-align: center;
+	color:grey;
+}
+.gridssub a span{
+	padding:0 20px;
+	color:white;
+}
+.gridssub div.circle{
+	float:right;
+	width: 14px;
+	height: 14px;
+	margin: 4px 0px;
+	border-radius: 100px;
+}
+/*.gridssub .active div.circle{
+	background-color: #ff5179;
+}*/
+.gridssub li:nth-child(2n) div.circle{
+	background-color: #ff5179;
+}
+.gridssub div.circle{
+	background-color: green;
+}
+.linegraphsec table tr{
+    height: 30px;
+	text-align: center;
+}
+.linegraphsec table td div{
+	margin:0 auto;
+	border-radius: 100px;
+	width: 15px;
+	height: 15px;
+	background: black;
+}
+.linegraphsec div.one{
+	background: #1f5788;
+	height:15px;
+	width: 15px;
+	border-radius: 100px;
+}
+.table_select p.table_comment{
+	float: left;
+	margin-top: 0px;
+}
+.linegraphsec div.two{
+	background: red;
+	height:15px;
+	border-radius: 100px;
+	width: 15px;
+}
+.linegraphsec div.three{
+	height:15px;
+	width: 15px;
+	border-radius: 100px;
+    background: #dddddd;
+}
+.table_select{
+    width: 100%;
+    padding-left: 20%;
+    height: 30px;
+}
+.table_select div{
+	float: left;
+	margin-top: 3px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+
+
+
+#test1 {
+  margin: 0;
+  padding: 0;
+  overflow: none;
+}
+
+
+
+/********************
+ * TOOLTIP CSS
+ */
+body { font: 12px Arial;}
+.splitline{	
+    border-top: 5px solid #367fa9;
+    box-shadow: 10px 10px 30px #888888;
+    width: 100%;
+    border-radius: 100px;
+    display: block;
+}
+#chart_futrev1 path.line { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+#chart_futrev1 path.line2 { 
+    stroke: red;
+    stroke-width: 2;
+    fill: none;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+.nvtooltip {
+  position: absolute;
+  background-color: rgba(255,255,255,1);
+  padding: 10px;
+  border: 1px solid #ddd;
+
+  font-family: Arial;
+  font-size: 13px;
+
+  transition: opacity 500ms linear;
+  -moz-transition: opacity 500ms linear;
+  -webkit-transition: opacity 500ms linear;
+
+  transition-delay: 500ms
+  -moz-transition-delay: 500ms;
+  -webkit-transition-delay: 500ms;
+
+  -moz-box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+  -webkit-box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+  box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+.nvtooltip h3 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.nvtooltip p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.nvtooltip span {
+  display: inline-block;
+  margin: 2px 0;
+}
+
+
+
+
+
+/**********
+*  General SVG CSS
+*/
+
+
+text {
+  font: 12px sans-serif;
+}
+
+
+
+/**********
+*  Legend
+*/
+
+.legend .series {
+  cursor: pointer;
+}
+
+.legend circle {
+  stroke-width: 2px;
+}
+
+.legend .disabled circle {
+  fill-opacity: 0;
+}
+
+
+
+/**********
+*  Axes
+*/
+
+.axis path {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .75;
+  shape-rendering: crispEdges;
+}
+
+.axis path.domain {
+  stroke-opacity: .75;
+}
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .25;
+  shape-rendering: crispEdges;
+}
+
+.axis line.zero {
+  stroke-opacity: .75;
+}
+
+
+
+/**********
+*  Line chart
+*/
+
+.point-paths path {
+  /*
+  fill: #eee;
+  stroke: #aaa;
+  */
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+
+.lines path {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+
+  transition: stroke-width 250ms linear;
+  -moz-transition: stroke-width 250ms linear;
+  -webkit-transition: stroke-width 250ms linear;
+
+  transition-delay: 250ms
+  -moz-transition-delay: 250ms;
+  -webkit-transition-delay: 250ms;
+}
+
+.line.hover path {
+  stroke-width: 6px;
+}
+
+.lines .point {
+  transition: stroke-width 250ms linear;
+  -moz-transition: stroke-width 250ms linear;
+  -webkit-transition: stroke-width 250ms linear;
+}
+
+.lines .point.hover {
+  stroke-width: 20px;
+  stroke-opacity: .5;
+}
+
+

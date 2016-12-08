@@ -1,0 +1,267 @@
+<template name="data_update_form">
+  <div class="modal fade" id="data_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>Learning Rate</p>
+              <select class="form-control" name="learningRate" id="learningRate">
+                <option value="0.00001">0.00001</option>
+                <option value="0.0001">0.0001</option>
+                <option value="0.001">0.001</option>
+                <option value="0.003">0.003</option>
+                <option value="0.01">0.01</option>
+                <option value="0.03">0.03</option>
+                <option value="0.1">0.1</option>
+                <option value="0.3">0.3</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="data_form_div">
+              <p>Activation</p>
+              <select class="form-control" id="activations" name="activations">
+                <option value="relu">ReLU</option>
+                <option value="tanh">Tanh</option>
+                <option value="sigmoid">Sigmoid</option>
+                <option value="linear">Linear</option>
+              </select>
+            </div>
+            <div class="data_form_div">
+              <p>Regularization</p>
+              <select class="form-control" id="regularizations" name="regularizations">
+                <option value="none">None</option>
+                <option value="L1">L1</option>
+                <option value="L2">L2</option>
+              </select>
+            </div>
+            <div class="data_form_div">
+              <p>Regularization Rate</p>
+              <select class="form-control" id="regularRate" name="regularRate">
+                <option value="0">0</option>
+                <option value="0.001">0.001</option>
+                <option value="0.003">0.003</option>
+                <option value="0.01">0.01</option>
+                <option value="0.03">0.03</option>
+                <option value="0.1">0.1</option>
+                <option value="0.3">0.3</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="data_form_div">
+              <p>Problem Type</p>
+              <select class="form-control" id="problem" name="problem">
+                <option value="classification">Classification</option>
+                <option value="regression">Regression</option>
+              </select>
+            </div>
+            <button class="btn btn-success">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<template name="predata_update_form">
+  <div class="modal fade" id="predata_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>Shape</p>
+              <select class="form-control" name="learningRate" id="learningRate">
+                <option value="circle">circle</option>
+                <option value="cross">cross</option>
+                <option value="triangle-up">triangle-up</option>
+                <option value="triangle-down">triangle-down</option>
+                <option value="diamond">diamond</option>
+                <option value="square">square</option>
+              </select>
+            </div>
+            <div class="data_form_div">
+              <p>X</p>
+              <input type="text" name="x_val" id="x_val" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Y</p>
+              <input type="text" name="y_val" id="x_val" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>size</p>
+              <input type="text" name="size" id="size" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="algorithmdata_update_form">
+  <div class="modal fade" id="algorithmdata_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>First line X</p>
+              <input type="text" name="algo1xval" id="algo1xval" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>First line Y</p>
+              <input type="text" name="algo1yval" id="algo1yval" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Second line X</p>
+              <input type="text" name="algo2xval" id="algo2xval" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Second line Y</p>
+              <input type="text" name="algo2yval" id="algo2yval" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Third line X</p>
+              <input type="text" name="algo3xval" id="algo3xval" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Third line Y</p>
+              <input type="text" name="algo3yval" id="algo3yval" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="algo_cur_data_update_form">
+  <div class="modal fade" id="algo_cur_data_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>First Graph</p>
+              <input type="text" name="first_g" id="first_g" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Second Graph</p>
+              <input type="text" name="second_g" id="second_g" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Third Graph</p>
+              <input type="text" name="third_g" id="third_g" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="preandrev_update_form">
+  <div class="modal fade" id="preandrev_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">  
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>First Graph X</p>
+              <input type="text" name="qua1" id="qua1" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>First Graph Y</p>
+              <input type="text" name="qua2" id="qua2" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Second Graph X</p>
+              <input type="text" name="qua3" id="qua3" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Second Graph Y</p>
+              <input type="text" name="qua4" id="qua4" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<template name="churndata_update_form">
+  <div class="modal fade" id="churn_add_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            Please set the values.
+          </div>
+        </div>
+        <div class="modal-body">  
+          <form class="js-add-data">
+            <div class="data_form_div">
+              <p>Models</p>
+              <input type="number" name="model_count" id="model_count" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Algorithms</p>
+              <input type="number" name="algorithm_count" id="algorithm_count" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Product Category:</p>
+              <input type="text" name="pro_cat" id="pro_cat" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Timeframe:</p>
+              <input type="text" name="timeframe" id="timeframe" class="form-control">
+            </div>
+            <div class="data_form_div">
+              <p>Customer Type:</p>
+              <input type="text" name="type" id="type" class="form-control">
+            </div>
+            <button class="btn btn-success" disabled="disabled">Save</button>
+            <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

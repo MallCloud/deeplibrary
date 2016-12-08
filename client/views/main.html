@@ -1,0 +1,404 @@
+<template name="main">
+  {{#AdminLTE skin="blue"}}
+
+  {{> yield "modal_churndata"}}
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">-SYNAPSE</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+
+            <!-- Notifications Menu -->
+            
+            <!-- User Account: style can be found in dropdown.less -->
+            <li>
+               <a>Cycle Gear</a>
+            </li>
+            <li class="logout">
+            	<a href="login">LOG OUT</a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+    </header> <!-- navbar -->
+
+     <aside class="main-sidebar">
+      <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+<!--        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>admin</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div> -->
+
+        <!-- search form (Optional) -->
+        <!--<form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                  </button>
+                </span>
+          </div>
+        </form>-->
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+          <!-- Optionally, you can add icons to the links -->
+          <!--<li><a href="input"><i class="fa fa-link"></i> <span>Data</span></a></li>-->
+          <li class="active"><a href="main"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a></li>
+          <li><a href="knowledge"><i class="fa fa-check" aria-hidden="true"></i> <span>KNOWLEDGE GRIDS</span></a></li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-list-ul"></i> <span>GRIDS</span>
+              <span class="pull-right-container">
+                <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu gridssub">
+              <li><a href="/churn">Churn<span>11/15 - 11/30</span><div class="circle"></div></a></li>
+              <li><a href="/churn">Churn<span>11/30 - 12/15</span><div class="circle"></div></a></li>
+              <li><a href="/churn">Churn<span>12/15 - 12/17</span><div class="circle"></div></a></li>
+              <li><a href="/lapse">Lapse<span>09/16 - 4/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/target">Target<span>09/16 - 12/16</span><div class="circle"></div></a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/action"><i class="fa fa-arrows-alt" aria-hidden="true"></i> <span>ACTION</span>
+            </a>
+            
+          </li>
+
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+    </aside>
+
+    <div class="content-wrapper">
+    	<section class="content-header">
+      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / <span>Performance Dashboard</span> </p>
+      		<h1><b>DAILY PREDICTION : 10-23-2016</b></h1>
+      		<p class="comment">Active Grids - by Type</p>
+          <div class="chartbuttons">
+            <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <small class="badge">3</small><i class="fa fa-undo" aria-hidden="true"></i></button>
+        		<button type="button" class="lapsebtn btn btn-block btn-primary "><p>LAPSE</p> <small class="badge">1</small><i class="fa fa-line-chart" aria-hidden="true"></i></button>
+            <button type="button" class="influencebtn btn btn-block btn-primary "><p>INFLUENCE</p><small class="badge">2</small> <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+            <button type="button" class="targetbtn btn btn-block btn-primary "><p>TARGET</p><small class="badge">1</small> <i class="fa fa-trophy" aria-hidden="true"></i></button>
+          </div>
+	    </section>
+	    <section class="content linegraphsecs">
+
+        <div class="linegraphsec revenue">
+          <div class="graphtitle"><p>PREDICTED FUTURE REVENUE<br/>Incremental impact of KnowledgeGRIDS by Month</p></div>
+          <div id="chart_revenue">
+            {{> highchartsHelper chartId="test" chartWidth="100%" chartHeight="100%" chartObject=topGenresChart}}
+          </div>
+        {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="add_revenue">Add data</button>
+          <button class="btn btn-block btn-primary" id="remove_revenue">Remove data</button>
+          {{/if}}
+          <button class="btn btn-block btn-primary" id="show_revenue">Show data</button>
+        </div>
+        <div class="linegraphsec business">
+          <div class="graphtitle"><p>REVENUE IMPACT BY BUSINESS OBJECTIVE<br/>Incremental impact by Category or Strategy</p></div>
+          <div class="business_content">
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right">
+                <p>Reducing risk</p>
+                <p>Total:$2,246,225</p>
+              </div>
+            </div>
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right"> 
+                <p>Reducing waste</p>
+                <p>Total:$2,346,225</p>
+              </div>
+            </div>
+            <div class="i_p_div">
+              <div class="i_p_div_left">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+              </div>
+              <div class="i_p_div_right">
+                <p>Increasing revenue</p>
+                <p>Total:$1,353,345</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+		    <div class="linegraphsec">
+  				<div class="graphtitle"><p>PREDICTED SHOPPER BEHAVIOR<br/>Based on PLANNED GRID ACTIVATION</p></div>
+  				<div id="chart_intandact">
+  				    
+            {{> highchartsHelper chartId="test1" chartWidth="100%" chartHeight="100%" chartObject=leftpieChart}}
+         
+  				</div>
+        {{#if isUserInRole 'admin'}}
+  			  	<button class="btn btn-block btn-primary" id="add_intandact">Add data</button>
+  				<button class="btn btn-block btn-primary" id="remove_intandact">Remove data</button>
+          {{/if}}
+		    </div>
+		    <div class="linegraphsec">
+  				<div class="graphtitle"><p>PREDICTED CHANNEL RESPONSE<br/>Based on PLANNED GRID ACTIVATION</p></div>
+  				<div id="chart_engagement">
+  					{{> highchartsHelper chartId="test2" chartWidth="100%" chartHeight="100%" chartObject=rightpieChart}}
+  				</div>
+        {{#if isUserInRole 'admin'}}
+  				<button class="btn btn-block btn-primary" id="add_engagement">Add data</button>
+  				<button class="btn btn-block btn-primary" id="remove_engagement">Remove data</button>
+          {{/if}}
+		    </div>
+
+        <div class="linegraphsec table_col_4">
+          <div class="graphtitle"><p>PREDICTED IMPACT TO SALES WITHIN PRODUCT CATEGORY<br/>Based on PLANNED GRID ACTIVATION</p></div>
+          <table>
+            <tr>
+              <th></th>
+              <th><div>Helmet</div></th>
+              <th><div>Jacket</div></th>
+              <th><div>Gloves</div></th>
+              <th><div>Tires</div></th>
+            </tr>
+            
+            <tr>
+              <td>November</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>          
+            <tr>
+              <td>October</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>September</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>August</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>   
+              <td>June</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>      
+            <tr>
+              <td>April</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>March</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>Febrary</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr> 
+            <tr>
+              <td>January</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+          </table>
+          <div class="table_select">
+            <div class="one"></div>
+            <p class="table_comment">below average</p>
+            <div class="two"></div>
+            <p class="table_comment">average</p>
+            <div class="three"></div>
+            <p class="table_comment">above average</p>
+          </div>
+          <div>
+           {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="change_table1data">change data</button>
+          {{/if}}
+          <button class="btn btn-block btn-primary" id="refresh_table1data">Refresh data</button>
+          </div>
+        </div>
+        <div class="linegraphsec table_col_5">
+          <div class="graphtitle"><p>PREDICTED IMPACT TO SALES OF TARGETED PRODUCTS<br/>Based on PLANNED GRID ACTIVATION</p></div>
+          <table>
+            <tr>
+              <th></th>
+              <th><div>Bilt Helmet t210</div></th>
+              <th><div>Sedeci Helmet RF</div></th>
+              <th><div>O'Neal Rider Boots</div></th>
+              <th><div>Leatt GPX Jacket</div></th>
+              <th><div>Racecraft Goggles</div></th>
+            </tr>
+            
+            <tr>
+              <td>November</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>          
+            <tr>
+              <td>October</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>September</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+            </tr>  
+            <tr>
+              <td>August</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>   
+              <td>June</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr>      
+            <tr>
+              <td>April</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+            <tr>
+              <td>March</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+            </tr>  
+            <tr>
+              <td>Febrary</td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="two"></div></td>
+            </tr> 
+            <tr>
+              <td>January</td>
+              <td><div class="one"></div></td>
+              <td><div class="one"></div></td>
+              <td><div class="three"></div></td>
+              <td><div class="two"></div></td>
+              <td><div class="one"></div></td>
+            </tr>
+          </table>
+          <div class="table_select">
+            <div class="one"></div>
+            <p class="table_comment">below average</p>
+            <div class="two"></div>
+            <p class="table_comment">average</p>
+            <div class="three"></div>
+            <p class="table_comment">above average</p>
+          </div>
+          <div>
+           {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="change_table2data">change data</button>
+          {{/if}}
+          <button class="btn btn-block btn-primary" id="refresh_table2data">Refresh data</button>
+          </div>
+        </div>
+      	</section>
+    </div>
+    <!-- /.content-wrapper -->
+  </div> <!-- wrapper -->
+
+  {{/AdminLTE}}
+</template>
+

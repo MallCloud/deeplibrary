@@ -1,6 +1,10 @@
 <template name="graph">
   {{#AdminLTE skin="blue"}}
 
+  {{> yield "modal_churndata"}}
+  {{> yield "modal_algorithm"}}
+  {{> yield "modal_preandrev"}}
+  {{> yield "modal_algo_cur_data"}}
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
@@ -165,8 +169,7 @@
         <ul class="sidebar-menu">
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="main"><i class="fa fa-link"></i> <span>Introduction</span></a></li>
-          <li class="active"><a href="input"><i class="fa fa-link"></i> <span>Upload Data</span></a></li>
+          <li><a href="input"><i class="fa fa-link"></i> <span>Data</span></a></li>
           <li class="treeview">
             <a href="#"><i class="fa fa-link"></i> <span>Parameters</span>
               <span class="pull-right-container">
@@ -178,7 +181,18 @@
               <li><a href="#">Link in level 2</a></li>
             </ul>
           </li>
-          <li><a href="graph"><i class="fa fa-link"></i> <span>Graphs</span></a></li>
+          <li class="treeview active">
+            <a href="#"><i class="fa fa-link"></i> <span>KnowledgeGRID</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="input">Upload Data</a></li>
+              <li class="active"><a href="graph">Graphs</a></li>
+              <li><a href="#">Parameters</a></li>
+            </ul>
+          </li>
 
         </ul>
         <!-- /.sidebar-menu -->
@@ -189,7 +203,11 @@
       <section class="content-header">
       </section>
       <section class="content">
-
+      <iframe src="http://playground.tensorflow.org/#acWvaWon=tanh&batchSize=10&dataset=gauss&regDataset=regplane&
+learningRate=0.03&regularizaWonRate=0&noise=0&networkShape=4,2&seed=0.38541&showTestData=false&discr
+eWze=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&
+cosY=false&sinY=false&collectStats=false&problem=classificaWon&initZero=false&hideText=false">
+      </iframe>
 
 
       </section>

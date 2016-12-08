@@ -1,0 +1,170 @@
+<template name="churn">
+  {{#AdminLTE skin="blue"}}
+
+  {{#if isUserInRole 'admin'}}
+  {{> yield "modal_algorithm"}}
+  {{> yield "modal_preandrev"}}
+  {{> yield "modal_churndata"}}
+  {{> yield "modal_algo_cur_data"}}
+  {{/if}}
+  <div class="wrapper">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">-SYNAPSE</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+
+            <!-- Notifications Menu -->
+            
+            <!-- User Account: style can be found in dropdown.less -->
+            <li>
+               <a>Cycle Gear</a>
+            </li>
+            <li class="logout">
+            	<a href="login">LOG OUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header> <!-- navbar -->
+
+     <aside class="main-sidebar">
+      <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+<!--        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>admin</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div> -->
+
+        <!-- search form (Optional) -->
+        <!--<form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                  </button>
+                </span>
+          </div>
+        </form>-->
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+          <!-- Optionally, you can add icons to the links -->
+          <!--<li><a href="input"><i class="fa fa-link"></i> <span>Data</span></a></li>-->
+          <li><a href="main"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a></li>
+          <li><a href="knowledge"><i class="fa fa-check" aria-hidden="true"></i> <span>KNOWLEDGE GRIDS</span></a></li>
+          <li class="treeview active">
+            <a href="#"><i class="fa fa-list-ul"></i> <span>GRIDS</span>
+              <span class="pull-right-container">
+                <i class="fa fa-arrow-circle-o-down"  aria-hidden="true"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu gridssub">
+              <li class="active"><a href="/churn">Churn<span>11/15 - 11/30</span><div class="circle"></div></a></li>
+              <li class="active"><a href="/churn">Churn<span>11/30 - 12/15</span><div class="circle"></div></a></li>
+              <li class="active"><a href="/churn">Churn<span>12/15 - 12/17</span><div class="circle"></div></a></li>
+              <li><a href="/lapse">Lapse<span>09/16 - 4/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/influence">Influence<span>07/16 - 3/17</span><div class="circle"></div></a></li>
+              <li><a href="/target">Target<span>09/16 - 12/16</span><div class="circle"></div></a></li>
+            </ul>
+            
+          </li>
+          <li>
+            <a href="/action"><i class="fa fa-arrows-alt" aria-hidden="true"></i> <span>ACTION</span>
+             </a>
+            
+          </li>
+
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+    </aside>
+
+    <div class="content-wrapper">
+    	<section class="content-header">
+      		<p><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a> / <a>GRID Details</a></p>
+      		<h1><b>Grid Details</b></h1>
+      		<p class="comment">Projecting customer churn, risk and life cycle.</p>
+          <button type="button" class="churnbtn btn btn-block btn-primary "><p>CHURN</p> <small class="badge">3</small> <i class="fa fa-undo" aria-hidden="true"></i></button>
+
+	    </section>
+	    <section class="content linegraphsecs">
+
+
+
+        <div class="linegraphsec grid_org">
+        <div class="graphtitle"><p>PREDICT FUTURE REVENUE</p></div>
+        <div id="chart_futrev1">
+            <svg style="width:100%;"></svg>
+        </div>
+        {{#if isUserInRole 'admin'}}
+          <button class="btn btn-block btn-primary" id="add_futrev1">Add data</button>
+          <button class="btn btn-block btn-primary" id="remove_futrev1">Remove data</button>
+        {{/if}}
+        <button class="btn btn-block btn-primary" id="show_futrev1">Refresh data</button>
+        </div>
+        <div class="splitline">
+          
+        </div>
+        <b><p class="comment">Algorithm outcomes</p></b>
+
+        
+		    <div class="linegraphsec">
+				<div class="graphtitle"><p>PREDICTION ACCURACY VERSUS ACTUAL REVENUE</p></div>
+				<div id="chart_preandrev">
+				    <svg style="width:100%;"></svg>
+				</div>
+        {{#if isUserInRole 'admin'}}
+			  	<button class="btn btn-block btn-primary" id="add_preandrev">Add data</button>
+				<button class="btn btn-block btn-primary" id="remove_preandrev">Remove data</button>
+        {{/if}}
+				<button class="btn btn-block btn-primary" id="show_preandrev">Refresh data</button>
+		    </div>
+		    <div class="linegraphsec">
+				<div class="graphtitle"><p>ALGORITHM CONTRIBUTION</p></div>
+				<div id="chart_algorithm">
+					<svg style="width:100%;"></svg>
+				</div>
+        {{#if isUserInRole 'admin'}}
+				<button class="btn btn-block btn-primary" id="add_algorithm">Add data</button>
+				<button class="btn btn-block btn-primary" id="remove_algorithm">Remove data</button>
+        {{/if}}
+				<button class="btn btn-block btn-primary" id="show_algorithm">Refresh data</button>
+		    </div>
+		    <div class="linegraphsec">
+				<div class="graphtitle"><p>ALGORITHM CONTRIBUTION</p></div>
+				<div id="chart_algo_cur">
+					<svg style="width:100%;"></svg>
+				</div>
+        {{#if isUserInRole 'admin'}}
+				<button class="btn btn-block btn-primary" id="change_algo_cur_data">Change data</button>
+        {{/if}}
+				<button class="btn btn-block btn-primary" id="show_algo_cur_data">Refresh data</button>
+			</div>	
+
+      	</section>
+    </div>
+    <!-- /.content-wrapper -->
+  </div> <!-- wrapper -->
+
+  {{/AdminLTE}}
+</template>
